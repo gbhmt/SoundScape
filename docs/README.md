@@ -105,6 +105,7 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 * Style search bar and results dropdown
 
 ### Bonus features (TBD)
+* Pagination of songs and playlists
 * Waveforms
 * Comment overlay on waveform with popout display of comments while listening or hovering
 * Likes
