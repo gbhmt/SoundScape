@@ -27,6 +27,90 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 
 ## Implementation Timeline
 
+### Phase 1: Set up back end and front end user authentication (1 day)
+**Objective:** Functioning rails app with authentication
+* New rails project
+* `User` model, migration, controller
+* jBuilder view for `User`
+* Back end authentication
+* `StaticPages` controller and root view 
+* Install React/Redux dependencies
+* Webpack javascript files
+* API util file for user/session database interactions
+* Redux cycle for front end authentication
+* Create login/login success components
+* Style login components
+* Seed users
+
+### Phase 2: Tracks Model, API, and components (2 days)
+**Objective:** Tracks can be uploaded, viewed, updated, and deleted through API
+* `Track` model
+* Sample seed data for testing
+* CRUD API through `TracksController`
+* jBuilder views for tracks
+* Track components and Redux cycle
+  * `TracksIndex`
+  * `TrackIndexItem`
+  * `TrackForm`
+* Style tracks components
+* Seed tracks
+
+### Phase 3: Playlists model, API, and components (2 days)
+**Objective:** Tracks belong to Playlists that can be uploaded, viewed, updated, and deleted through API
+* `Playlist` model
+* Sample seed data for testing
+* CRUD API through `TracksController`
+* jBuilder views for playlists
+* Playlist components and Redux cycle
+  * `PlaylistsIndex`
+  * `PlaylistIndexItem`
+  * `PlaylistForm`
+* Style playlists components
+* Seed playlists
+
+### Phase 4: Comments model, API, and components (2 days)
+**Objective:** Tracks, playlists, and users have comments than can be created and deleted through API
+* `Comment` model (polymorphic)
+* Sample comment data for testing
+* CRUD API through `CommentsController`
+* jBuilder views for comments
+* Comment components and Redux cycle
+  * `CommentIndex`
+  * `CommentIndexItem`
+  * `CommentForm`
+* Style comment components according to context
+* Seed comments (for all applicable parents)
+
+### Phase 5: Continuous Play while browsing (1 day)
+**Objective:** Songs and playlists will play continously while browsing
+* Sample track and playlist data for testing (as `currentTracks` in store)
+* `AudioPlayer` component and Redux cycle (using `<audio>` HTML5 element)
+* Style audio player component
+
+### Phase 6: Tags model, API, and components (1 day)
+**Objective:** Songs have many tags than can be created and deleted through the API, user can browse songs by tag
+* `Tag` model and `Taggings` join table
+* CRUD API through `TagsController` and `TaggingsController`
+* Tag components and Redux cycle
+  * `TagIndex`
+  * `TagIndexItem`
+  * `TagForm`
+* Style tag components
+* Seed tags
+
+### Phase 7: Search function (2 days)
+**Objective:** Search bar in parent element that can search by song, playlist, user, or tag
+* Search component and Redux cycle
+* Displays results for each results field in dropdown on search field entry
+* Style search bar and results dropdown
+
+### Bonus features (TBD)
+* Waveforms
+* Comment overlay on waveform with popout display of comments while listening or hovering
+* Likes
+
+
+
 
 
 
