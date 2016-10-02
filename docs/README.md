@@ -83,7 +83,7 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 
 
 ### Phase 5: Search function (2 days)
-**Objective:** Search bar in parent element that can search by song, playlist, user, or tag
+**Objective:** Search bar in parent element that can search by song, playlist, or user
 * Search component and Redux cycle
 * Displays results for each results field in dropdown on search field entry
 * Style search bar and results dropdown
