@@ -57,6 +57,9 @@
   
 ### NewPlaylistContainer
   * PlaylistForm
+  
+### AudioPlayerContainer
+ * AudioPlayer
     
 ## Routes
 
