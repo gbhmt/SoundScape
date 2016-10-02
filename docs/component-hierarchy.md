@@ -10,7 +10,7 @@
   
 ### HomeContainer
   * Header
-    * NavbarA
+    * Navbar
     * Search
       * SearchResultsDropdown
   * HomeNav
@@ -22,15 +22,15 @@
 
 ### TracksContainer
   * TracksIndex
-  * TrackDetail
+  * TrackIndexItem
   
 ### UsersContainer
   * UsersIndex
-  * UserDetail
+  * UserIndexItem
   
 ### PlaylistsContainer
   * PlaylistsIndex
-  * PlaylistDetail
+  * PlaylistIndexItem
   
 ### SearchResultsContainer
   * SearchResultsNav
