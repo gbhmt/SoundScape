@@ -39,5 +39,6 @@ track_id       | integer    | not null, foreign key (references tracks), indexed
 column name      | data type  | details
 -----------------|------------|-------------------------
 id               | integer    | not null, primary key
+user_id          | integer    | not null, foreign key (references users), indexed
 commentable_id   | integer    | not null, foreign key (references playlists or tracks), indexed
 commentable_type | string     | not null
