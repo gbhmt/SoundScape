@@ -16,6 +16,7 @@ id              | integer   | not null, primary key
 title           | string    | not null
 description     | string    | not null
 track_url       | string    | not null
+track_img_url   | string    | not null
 user_id         | integer   | not null, foreign key (references users), indexed
 
 ## playlists
@@ -24,6 +25,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 title           | string    | not null
 description     | string    | not null
+playlist_img_url| string    | not null
 user_id         | integer   | not null, foreign key (references users), indexed
 
 ## playlist_adds
