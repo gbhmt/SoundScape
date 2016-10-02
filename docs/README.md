@@ -8,11 +8,9 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 
 * Hosting on Heroku
 * Account creation and login, including a demo login and user profile pages
-* Tracks 
+* Tracks, with continuous play while browsing
 * Playlists
 * Comments
-* Continuous play while browsing
-* Tags
 * Search
 * Production README
 
@@ -43,7 +41,7 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 * Seed users
 
 ### Phase 2: Tracks Model, API, and components (2 days)
-**Objective:** Tracks can be uploaded, viewed, updated, and deleted through API
+**Objective:** Tracks can be uploaded, viewed, updated, and deleted through API, will continuously play while browsing
 * `Track` model
 * Sample seed data for testing
 * CRUD API through `TracksController`
@@ -53,6 +51,8 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
   * `TrackIndexItem`
   * `TrackForm`
 * Style tracks components
+* `AudioPlayer` component and Redux cycle (using `<audio>` HTML5 element)
+* Style audio player component
 * Seed tracks
 
 ### Phase 3: Playlists model, API, and components (2 days)
@@ -81,30 +81,15 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 * Style comment components according to context
 * Seed comments (for all applicable parents)
 
-### Phase 5: Continuous Play while browsing (1 day)
-**Objective:** Songs and playlists will play continously while browsing
-* Sample track and playlist data for testing (as `currentTracks` in store)
-* `AudioPlayer` component and Redux cycle (using `<audio>` HTML5 element)
-* Style audio player component
 
-### Phase 6: Tags model, API, and components (1 day)
-**Objective:** Songs have many tags than can be created and deleted through the API, user can browse songs by tag
-* `Tag` model and `Taggings` join table
-* CRUD API through `TagsController` and `TaggingsController`
-* Tag components and Redux cycle
-  * `TagIndex`
-  * `TagIndexItem`
-  * `TagForm`
-* Style tag components
-* Seed tags
-
-### Phase 7: Search function (2 days)
+### Phase 5: Search function (2 days)
 **Objective:** Search bar in parent element that can search by song, playlist, user, or tag
 * Search component and Redux cycle
 * Displays results for each results field in dropdown on search field entry
 * Style search bar and results dropdown
 
 ### Bonus features (TBD)
+* Tags
 * Pagination of songs and playlists
 * Waveforms
 * Comment overlay on waveform with popout display of comments while listening or hovering
