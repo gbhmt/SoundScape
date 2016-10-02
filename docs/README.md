@@ -66,13 +66,14 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 **Objective:** Tracks belong to many playlists that can be uploaded, viewed, updated, and deleted through API
 * `Playlist` model, `PlaylistAdd` join table
 * Sample seed data for testing
-* CRUD API through `TracksController`
+* CRUD API through `PlaylistsController`
 * jBuilder views for playlists
 * Playlist components and Redux cycle
   * `PlaylistsIndex`
   * `PlaylistIndexItem`
   * `PlaylistForm`
 * Style playlists components
+* CRUD API through `PlaylistAddsController`
 * Seed playlists
 
 ### Phase 4: Comments model, API, and components (2 days)
