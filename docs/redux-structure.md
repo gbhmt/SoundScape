@@ -39,7 +39,7 @@
   3. `receiveAllUsers` is set as success callback
 * `fetchSingleUser`
   1. invoked from `UserShow` `didMount`
-  2. `GET /api/users/:user_id` is called
+  2. `GET /api/users/:id` is called
   3. `receiveSingleUser` is set as success callback
 
 ### User API Response Actions
@@ -59,7 +59,7 @@
   3. `receiveAllTracks` is set as success callback
 * `fetchSingleTrack`
   1. invoked from `TrackShow` `didMount`
-  2. `GET /api/tracks/:track_id` is called
+  2. `GET /api/tracks/:id` is called
   3. `receiveSingleTrack` is set as success callback
 * `createTrack`
   1. invoked from `TrackForm` `onSubmit`
@@ -67,11 +67,11 @@
   3. `receiveSingleTrack` is set as success callback
 * `updateTrack`
   1. invoked from `TrackForm` `onSubmit`
-  2. `PATCH /api/tracks/:track_id` is called
+  2. `PATCH /api/tracks/:id` is called
   3. `receiveSingleTrack` is set as success callback
 * `destroyTrack`
   1. invoked from delete track button `onClick`
-  2. `DELETE /api/tracks/:track_id` is called
+  2. `DELETE /api/tracks/:id` is called
   3. `removeTrack` is set as success callback
 
 
@@ -95,7 +95,7 @@
   3. `receiveAllPlaylists` is set as success callback
 * `fetchSinglePlaylist`
   1. invoked from `TrackShow` `didMount`
-  2. `GET /api/playlists/:playlist_id` is called
+  2. `GET /api/playlists/:id` is called
   3. `receiveSinglePlaylist` is set as success callback
 * `createPlaylist`
   1. invoked from `PlaylistForm` `onSubmit`
@@ -103,11 +103,11 @@
   3. `receiveSinglePlaylist` is set as success callback
 * `updatePlaylist`
   1. invoked from `PlaylistForm` `onSubmit`
-  2. `PATCH /api/playlists/:playlist_id` is called
+  2. `PATCH /api/playlists/:id` is called
   3. `receiveSinglePlaylist` is set as success callback
 * `destroyPlaylist`
   1. invoked from delete playlist button `onClick`
-  2. `DELETE /api/playlists/:playlist_id` is called
+  2. `DELETE /api/playlists/:id` is called
   3. `removePlaylist` is set as success callback
 
 
@@ -152,7 +152,7 @@
   3. `receiveAllComments` is set as success callback
 * `destroyComment`
   1. invoked from delete comment button `onClick`
-  2. `DELETE /api/playlists/:playlist_id/comments/:comment_id` or `DELETE /api/tracks/:track_id/comments/:comment_id` is called
+  2. `DELETE /api/playlists/:playlist_id/comments/:id` or `DELETE /api/tracks/:track_id/comments/:id` is called
   3. `removeComment` is set as success callback
 
 ### Comment API Response Actions
