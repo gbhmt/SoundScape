@@ -25,11 +25,11 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 
 ## Implementation Timeline
 
-### Phase 1: Set up back end and front end user authentication (1 day)
+### Phase 1: Set up back end and front end user authentication, user display (2 days)
 **Objective:** Functioning rails app with authentication
 * New rails project
 * `User` model, migration, controller
-* jBuilder view for `User`
+* jBuilder view for users
 * Back end authentication
 * `StaticPages` controller and root view 
 * Install React/Redux dependencies
@@ -39,6 +39,13 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 * Create login/login success components
 * Style login components
 * Seed users
+* User components and Redux cycle
+ * `UsersIndex`
+ * `UserDetail`
+ * `UserShow`
+ * `UserNav`
+* Style users components
+
 
 ### Phase 2: Tracks Model, API, and components (2 days)
 **Objective:** Tracks can be uploaded, viewed, updated, and deleted through API, will continuously play while browsing
