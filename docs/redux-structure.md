@@ -121,6 +121,27 @@
 * `removePlaylist`
   1. invoked from API callback
   2. `playlistsReducer` removes `playlists[id]` from application's state
+  
+## Playlist Add Cycles
+### Playlist API Request Actions
+* `createPlaylistAdd`
+  1. invoked from add track to playlist button `onClick`
+  2. `POST /api/playlist_adds` is called
+  3. `receivePlaylistAdd` is set as success callback
+* `removePlaylistAdd`
+  1. invoked from remove track from playlist button `onClick`
+  2. `DELETE /api/playlist_adds/id` is called
+  3. `removePlaylistAdd` is set as success callback
+  
+### Playlist API Response Actions
+* `receivePlaylistAdd`
+  1. invoked from API callback
+  2. `playlistAddsReducer` updates `playlists[id][playlist_tracks][id]` in application's state
+  3. `playlistAddsReducer` updates `tracks[id][playlist_adds][id]` in application's state
+* `removePlaylistAdd`
+  1. invoked from API callback
+  2. `playlistAddsReducer` removes `playlists[id][playlist_tracks][id]` from application's state
+  3. `playlistAddsReducer` removes `tracks[id][playlist_adds][id]` from application's state
 
 
 ## Comment Cycles
