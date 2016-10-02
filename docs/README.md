@@ -41,7 +41,7 @@ SoundScape is a web application inspired by SoundCloud built using Ruby on Rails
 * Seed users
 * User components and Redux cycle
  * `UsersIndex`
- * `UserDetail`
+ * `UserIndexItem`
  * `UserShow`
  * `UserNav`
 * Style users components
