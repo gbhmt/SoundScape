@@ -31,8 +31,10 @@
   * `DELETE /api/playlists/:playlist_id`
   
 ### Comments
-  * `GET /api/comments`
-  * `GET /api/comments/:comment_id`
-  * `POST /api/comments`
-  * `PATCH /api/comments/:comment_id`
-  * `DELETE /api/comments/:comment_id`
+  * `GET /api/playlists/:playlist_id/comments`
+  * `GET /api/tracks/:track_id/comments`
+  * `POST /api/playlists/:playlist_id/comments`
+  * `POST /api/tracks/:track_id/comments`
+  * `DELETE /api/playlists/:playlist_id/comments/:comment_id`
+  * `DELETE /api/tracks/:track_id/comments/:comment_id`
+  
