@@ -158,10 +158,10 @@
 ### Comment API Response Actions
 * `receiveAllComments`
   1. invoked from API callback
-  2. `commentsReducer` updates `comments` in application's state
+  2. `commentsReducer` updates `comments[track_comments]` or `comments[playlist_comments]` in application's state
 * `removeComment`
   1. invoked from API callback
-  2. `commentsReducer` removes `comments[id]` from application's state
+  2. `commentsReducer` removes `comments[track-comments][id]` or `comments[playlist_comments][id]` from application's state
 
 
 ## Search Cycles
