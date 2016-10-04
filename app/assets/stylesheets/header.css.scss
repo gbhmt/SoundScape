@@ -1,0 +1,51 @@
+.header {
+  width: 100%;
+  background: #333;
+  color: #aaa;
+}
+
+.header-nav {
+  width: 1255px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.header-list {
+  font-size: 14px;
+  float: right;
+  padding: 8px;
+  color: white;
+}
+
+.signup {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #f50;
+  margin-right: 30px;
+}
+
+.login {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #666;
+}
+
+.header-nav span {
+  display: inline-block;
+  padding: 0 10px;
+  color: #999;
+}
+
+.search {
+  display: block;
+  float: left;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+
+.logo {
+  width: 180px;
+  height: 45px;
+  float: left
+}

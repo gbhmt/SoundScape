@@ -30,18 +30,17 @@ class Header extends React.Component {
     const { currentUser } = this.props;
     if (currentUser) {
       buttons = (
-        <li>
+        <div>
           <Link to={ `users/${currentUser.id}`}>{ currentUser.username }</Link>
           <button onClick={ this.logout }>Logout</button>
-        </li>
+        </div>
       );
     } else {
       buttons = (
         <div>
-        <button onClick={ () => this.openModal("signup") }>Sign Up</button>
+          <button className="login" onClick={ () => this.openModal("login") }>Sign In</button>
           <span>or</span>
-        <button onClick={ () => this.openModal("login") }>Log In</button>
-
+          <button className="signup" onClick={ () => this.openModal("signup") }>Create an Account</button>
         <Modal
           isOpen={ this.state.modalOpen }
           onRequestClose={ this.closeModal }
@@ -56,11 +55,13 @@ class Header extends React.Component {
     }
     return (
       <div className="header">
-        <Link to={ "/" }><img src='assets/temp-logo.jpg'/></Link>
-        <span>Search bar goes here</span>
-        <ul>
-          { buttons }
-        </ul>
+        <div className="header-nav group">
+          <Link to={ "/" }><img className="logo"src={ window.SoundScapeAssets.logo }/></Link>
+          <span className="search">Search bar goes here</span>
+          <div className="header-list group">
+            { buttons }
+          </div>
+        </div>
       </div>
     );
   }

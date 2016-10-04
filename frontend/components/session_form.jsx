@@ -38,11 +38,6 @@ class SessionForm extends React.Component {
     }
   }
 
-  componentDidUpdate (){
-    if (this.props.loggedIn) {
-      this.props.router.push("/");
-    }
-  }
 
   render () {
     let header;
