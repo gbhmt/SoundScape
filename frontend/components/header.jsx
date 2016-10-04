@@ -56,7 +56,7 @@ class Header extends React.Component {
     }
     return (
       <div className="header">
-        <Link to={ "/" }><img src='assets/temp-logo.jpg'/></Link>
+        <Link to={ "/" }><img src={ window.SoundScapeAssets.logo }/></Link>
         <span>Search bar goes here</span>
         <ul>
           { buttons }
