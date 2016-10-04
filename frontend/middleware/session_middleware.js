@@ -18,7 +18,7 @@ const sessionMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case LOGOUT: {
-      logout(success, error);
+      logout(error);
       return next(action);
     }
     case SIGNUP: {

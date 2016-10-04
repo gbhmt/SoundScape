@@ -7,7 +7,6 @@ const sessionReducer = (state = null, action) => {
       return action.currentUser;
     }
     case LOGOUT: {
-      debugger
       return null;
     }
     default:
