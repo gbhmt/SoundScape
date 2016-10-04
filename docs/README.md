@@ -1,6 +1,6 @@
 # SoundScape
 
-[Link to project on Heroku](http://herokuapp.com)
+[Link to project on Heroku](http://soundscapes.herokuapp.com)
 
 ## Minimum Viable Product
 
