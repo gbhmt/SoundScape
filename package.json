@@ -7,7 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack"
+  },
+  "engines": {
+    "node": "5.1.0",
+    "npm": "3.3.12"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,7 @@
     "lodash": "^4.16.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",

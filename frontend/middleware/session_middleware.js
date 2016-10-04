@@ -1,12 +1,15 @@
 import { LOGIN,
         LOGOUT,
         SIGNUP,
-        receiveErrors,
         receiveCurrentUser } from '../actions/session_actions.js';
+import { receiveErrors, clearErrors } from '../actions/error_actions.js';
 import { signup, login, logout } from '../util/session_api_util.js';
 
 const sessionMiddleware = (store) => (next) => (action) => {
-  const success = (data) => store.dispatch(receiveCurrentUser(data));
+  const success = (data) => {
+    store.dispatch(receiveCurrentUser(data));
+    store.dispatch(clearErrors(data));
+  };
   const error = (data) => store.dispatch(receiveErrors(data.responseJSON));
 
   switch (action.type) {
@@ -15,6 +18,7 @@ const sessionMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case LOGOUT: {
+      logout(success, error);
       return next(action);
     }
     case SIGNUP: {
