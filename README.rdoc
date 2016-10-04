@@ -1,0 +1,16 @@
+== README
+
+Setup instructions:
+
+Replace all instances of "App" with desired name in database.yml, initializers/session_store.rb,
+application.rb, application.html.erb, and package.json.
+
+Run bundle install.
+
+Run npm install.
+
+Run rake db:setup.
+
+Run webpack --w.
+
+Start rails server.

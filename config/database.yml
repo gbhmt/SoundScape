@@ -1,4 +1,4 @@
-# PostgreSQL. Versions 9.1 and up are supported.
+# PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
 
 development:
   <<: *default
@@ -82,4 +82,4 @@ production:
   <<: *default
   database: SoundScape_production
   username: SoundScape
-  password: <%= ENV['SOUNDSCAPE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SoundScape_DATABASE_PASSWORD'] %>
