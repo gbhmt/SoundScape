@@ -47,7 +47,7 @@ group :development do
   gem 'spring'
 
 group :production do
-  gem 'rewrelic_rpm'
+  gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
 end
