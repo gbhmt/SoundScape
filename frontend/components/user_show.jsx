@@ -6,20 +6,17 @@ class UserShow extends React.Component {
     super(props);
     this.state = {
       modalOpen: false,
-      profileFile: null,
-      backgroundFile: null,
     };
-    this.saveProfilePic = this.saveProfilePic.bind(this);
+    this.savePic = this.savePic.bind(this);
   }
   componentDidMount () {
-    const func = this.props.fetchSingleUser(this.props.params.id);
+    this.props.fetchSingleUser(this.props.params.id);
   }
 
-  saveProfilePic (e) {
+  savePic (type, e) {
     const formData = new FormData();
-    formData.append("user[profile_picture]", e.currentTarget.files[0]);
+    formData.append(`user[${type}]`, e.currentTarget.files[0]);
     this.props.updateUser(this.props.user.id, formData);
-    this.setState({ profileFile: e.currentTarget.files[0] });
   }
   // updateFile (type, e) {
   //   const file = e.currentTarget.files[0];
@@ -41,9 +38,13 @@ class UserShow extends React.Component {
         uploadProfilePicture = <input
           className="upload-profile"
           type="file"
-          onChange={ this.saveProfilePic }/>;
+          onChange={ (e) => this.savePic("profile_picture", e) }/>;
         editProfile = <button className="edit" onClick={ this.openModal }>Edit</button>;
-        uploadBackground = <input className="upload-background" type="file"/>;
+        uploadBackground = <input
+          className="upload-background"
+          type="file"
+          onChange={ (e) => this.savePic("header_background", e) }
+          />;
       }
       const fullName = user.first_name + " " + user.last_name;
       const location = user.city + ", " + user.country;
