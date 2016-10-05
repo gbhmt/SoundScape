@@ -20,7 +20,6 @@
 }
 
 .form-container label {
-
   display: block;
   text-align: center;
   padding: 20px;
@@ -52,4 +51,10 @@
   background: #f50;
   padding: 10px;
   border-radius: 5px;
+}
+
+.form-error {
+  margin-top: 20px;
+  color: #f50;
+  font-size: 12px;
 }

@@ -2,12 +2,16 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                           :integer          not null, primary key
+#  username                     :string           not null
+#  password_digest              :string           not null
+#  session_token                :string           not null
+#  created_at                   :datetime
+#  updated_at                   :datetime
+#  profile_picture_file_name    :string
+#  profile_picture_content_type :string
+#  profile_picture_file_size    :integer
+#  profile_picture_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -15,6 +19,8 @@ class User < ActiveRecord::Base
   validates :username, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: {message: "can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true }
+  has_attached_file :profile_picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

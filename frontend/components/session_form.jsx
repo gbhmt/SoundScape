@@ -53,14 +53,11 @@ class SessionForm extends React.Component {
       linkText = "Log In";
     }
     const allErrors = this.props.errors.map((error, idx) => {
-      return <li key={ idx }>{ error }</li>;
+      return <li className="form-error" key={ idx }>{ error }</li>;
     });
     return (
       <div className='form-container'>
         { header }
-        <ul>
-          { allErrors }
-        </ul>
         <form onSubmit={ this.handleSubmit }>
           <label>Username</label>
             <input value={ this.state.username } onChange={ (e) => this.handleChange("username", e) }/>
@@ -68,6 +65,9 @@ class SessionForm extends React.Component {
           <label>Password</label>
             <input type="password" value={ this.state.password } onChange={ (e) => this.handleChange("password", e) }/>
           <br />
+            <ul>
+              { allErrors }
+            </ul>
           <button className="submit">Continue</button><br />
           <span className="before-link">{ beforeLinkText }</span>
           <button className="swapForms" onClick={ this.swapForms }>{ linkText }</button>
