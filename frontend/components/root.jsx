@@ -9,7 +9,7 @@ import SessionFormContainer from './session_form_container.jsx';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
-    if (store.getState().session.currentUser) {
+    if (store.getState().currentUser) {
       replace("/");
     }
   };

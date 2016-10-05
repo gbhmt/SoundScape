@@ -31,8 +31,8 @@ class Header extends React.Component {
     if (currentUser) {
       buttons = (
         <div>
-          <Link to={ `users/${currentUser.id}`}>{ currentUser.username }</Link>
-          <button onClick={ this.logout }>Logout</button>
+          <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.username }</Link>
+          <button className="logout" onClick={ this.logout }>Logout</button>
         </div>
       );
     } else {
@@ -40,7 +40,7 @@ class Header extends React.Component {
         <div>
           <button className="login" onClick={ () => this.openModal("login") }>Sign In</button>
           <span>or</span>
-          <button className="signup" onClick={ () => this.openModal("signup") }>Create an Account</button>
+          <button className="signup" onClick={ () => this.openModal("signup") }>Create Account</button>
         <Modal
           isOpen={ this.state.modalOpen }
           onRequestClose={ this.closeModal }

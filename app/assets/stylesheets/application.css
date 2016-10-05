@@ -12,6 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= reset.css
+ *= reset.css.scss
  *= header.css.scss
  */

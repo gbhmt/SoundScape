@@ -17,11 +17,15 @@ var modalStyle = {
     left            : '150px',
     right           : '150px',
     bottom          : '100px',
-    border          : '1px solid #ccc',
-    padding         : '20px',
-    zIndex         : 11
+    height          : '500px',
+    width           : '400px',
+    margin          : '0 auto',
+    padding         : '25px',
+    border          : '0',
+    borderRadius    : '0',
+    zIndex         : 11,
   }
-}
+};
 
 const App = ({ children }) => (
   <div>
