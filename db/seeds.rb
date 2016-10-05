@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user1 = User.new(email: "taylorbherron@gmail.com", password: "password", first_name: "Taylor",
+last_name: "Herron", city: "New York", country: "United States",
+  display_name: "Taylor Herron")
+user1.profile_picture = File.open('app/assets/images/profile.jpg')
+user1.header_background = File.open('app/assets/images/background.jpg')
+user1.save

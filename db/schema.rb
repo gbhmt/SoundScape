@@ -11,23 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005132024) do
+ActiveRecord::Schema.define(version: 20161005180820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                     null: false
-    t.string   "password_digest",              null: false
-    t.string   "session_token",                null: false
+    t.string   "email",                          null: false
+    t.string   "password_digest",                null: false
+    t.string   "session_token",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "profile_picture_file_name"
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.string   "display_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "city"
+    t.string   "country"
+    t.string   "header_background_file_name"
+    t.string   "header_background_content_type"
+    t.integer  "header_background_file_size"
+    t.datetime "header_background_updated_at"
   end
 
+  add_index "users", ["display_name"], name: "index_users_on_display_name", unique: true, using: :btree
   add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
 
 end

@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", formType: this.props.initialFormType };
+    this.state = { email: "", password: "", formType: this.props.initialFormType };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.swapForms = this.swapForms.bind(this);
@@ -59,8 +59,8 @@ class SessionForm extends React.Component {
       <div className='form-container'>
         { header }
         <form onSubmit={ this.handleSubmit }>
-          <label>Username</label>
-            <input value={ this.state.username } onChange={ (e) => this.handleChange("username", e) }/>
+          <label>Email</label>
+            <input value={ this.state.username } onChange={ (e) => this.handleChange("email", e) }/>
           <br />
           <label>Password</label>
             <input type="password" value={ this.state.password } onChange={ (e) => this.handleChange("password", e) }/>

@@ -13,6 +13,7 @@ const userMiddleware = ({ getState, dispatch }) => (next) => (action) => {
     }
     case userActions.FETCH_SINGLE_USER: {
       const success = (data) => dispatch(userActions.receiveSingleUser(data));
+      const error = (data) => dispatch(receiveErrors(data.statusText));
       fetchSingleUser(action.id, success, error);
       return next(action);
     }

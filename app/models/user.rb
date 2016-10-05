@@ -2,29 +2,42 @@
 #
 # Table name: users
 #
-#  id                           :integer          not null, primary key
-#  username                     :string           not null
-#  password_digest              :string           not null
-#  session_token                :string           not null
-#  created_at                   :datetime
-#  updated_at                   :datetime
-#  profile_picture_file_name    :string
-#  profile_picture_content_type :string
-#  profile_picture_file_size    :integer
-#  profile_picture_updated_at   :datetime
+#  id                             :integer          not null, primary key
+#  email                          :string           not null
+#  password_digest                :string           not null
+#  session_token                  :string           not null
+#  created_at                     :datetime
+#  updated_at                     :datetime
+#  profile_picture_file_name      :string
+#  profile_picture_content_type   :string
+#  profile_picture_file_size      :integer
+#  profile_picture_updated_at     :datetime
+#  display_name                   :string
+#  first_name                     :string
+#  last_name                      :string
+#  city                           :string
+#  country                        :string
+#  header_background_file_name    :string
+#  header_background_content_type :string
+#  header_background_file_size    :integer
+#  header_background_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
   attr_reader :password
-  validates :username, :session_token, presence: true, uniqueness: true
+  validates :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: {message: "can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true }
-  has_attached_file :profile_picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  has_attached_file :profile_picture, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
+  has_attached_file :header_background, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :header_background, content_type: /\Aimage\/.*\z/
+
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return user if user && user.is_password?(password)
     nil
   end
