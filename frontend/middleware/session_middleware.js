@@ -8,7 +8,7 @@ import { signup, login, logout } from '../util/session_api_util.js';
 const sessionMiddleware = (store) => (next) => (action) => {
   const success = (data) => {
     store.dispatch(receiveCurrentUser(data));
-    store.dispatch(clearErrors(data));
+    store.dispatch(clearErrors());
   };
   const error = (data) => store.dispatch(receiveErrors(data.responseJSON));
 
