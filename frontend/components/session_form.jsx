@@ -13,15 +13,13 @@ class SessionForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    const user = { username: this.state.username, password: this.state.password };
+    const user = { email: this.state.email, password: this.state.password };
     if (this.state.formType === "login") {
       this.props.login(user);
     } else {
       this.props.signup(user);
     }
-
-    this.setState({ username: "", password: ""});
-
+    this.setState({ email: "", password: ""});
   }
 
   handleChange (field, e) {
@@ -60,7 +58,7 @@ class SessionForm extends React.Component {
         { header }
         <form onSubmit={ this.handleSubmit }>
           <label>Email</label>
-            <input value={ this.state.username } onChange={ (e) => this.handleChange("email", e) }/>
+            <input value={ this.state.email } onChange={ (e) => this.handleChange("email", e) }/>
           <br />
           <label>Password</label>
             <input type="password" value={ this.state.password } onChange={ (e) => this.handleChange("password", e) }/>

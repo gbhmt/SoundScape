@@ -13,9 +13,10 @@ export const fetchSingleUser = (id) => ({
   id
 });
 
-export const updateUser = (user) => ({
+export const updateUser = (id, formData) => ({
   type: UPDATE_USER,
-  user
+  id,
+  formData
 });
 
 export const receiveAllUsers = (users) => ({

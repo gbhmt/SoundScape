@@ -1,5 +1,5 @@
 export const fetchAllUsers = (success, error) => {
-  $.ajax({
+  return $.ajax({
     method: "GET",
     url: '/api/users',
     success,
@@ -8,7 +8,7 @@ export const fetchAllUsers = (success, error) => {
 };
 
 export const fetchSingleUser = (id, success, error) => {
-  $.ajax({
+  return $.ajax({
     method: "GET",
     url: `/api/users/${id}`,
     success,
@@ -16,11 +16,14 @@ export const fetchSingleUser = (id, success, error) => {
   });
 };
 
-export const updateUser = (user, success, error) => {
-  $.ajax({
+export const updateUser = (id, formData, success, error) => {
+  debugger
+  return $.ajax({
     method: "PATCH",
-    url: `/api/users/${user.id}`,
-    data: { user },
+    url: `/api/users/${id}`,
+    contentType: false,
+    processData: false,
+    data: formData,
     success,
     error
   });

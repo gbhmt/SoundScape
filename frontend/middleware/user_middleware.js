@@ -4,23 +4,21 @@ import { fetchAllUsers, fetchSingleUser, updateUser } from '../util/users_api_ut
 
 
 const userMiddleware = ({ getState, dispatch }) => (next) => (action) => {
-  const error = (data) => dispatch(receiveErrors(data.responseJSON));
+  let error = (data) => dispatch(receiveErrors(data.responseJSON));
   switch (action.type) {
     case userActions.FETCH_ALL_USERS: {
       const success = (data) => dispatch(userActions.receiveAllUsers(data));
-      fetchAllUsers(success, error);
-      return next(action);
+      return fetchAllUsers(success, error);
     }
     case userActions.FETCH_SINGLE_USER: {
       const success = (data) => dispatch(userActions.receiveSingleUser(data));
-      const error = (data) => dispatch(receiveErrors(data.statusText));
-      fetchSingleUser(action.id, success, error);
-      return next(action);
+      error = (data) => dispatch(receiveErrors(data.statusText));
+      return fetchSingleUser(action.id, success, error);
     }
     case userActions.UPDATE_USER: {
       const success = (data) => dispatch(userActions.receiveSingleUser(data));
-      updateUser(action.user, success, error);
-      return next(action);
+      error = (data) => dispatch(receiveErrors(data));
+      return updateUser(action.id, action.formData, success, error);
     }
     default:
       return next(action);

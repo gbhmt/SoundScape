@@ -31,7 +31,7 @@ class Header extends React.Component {
     if (currentUser) {
       buttons = (
         <div>
-          <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.username }</Link>
+          <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.email }</Link>
           <button className="logout" onClick={ this.logout }>Logout</button>
         </div>
       );
