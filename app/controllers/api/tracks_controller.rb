@@ -2,6 +2,7 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = current_user.tracks.new(track_params)
+    @track.image = current_user.profile_picture unless @track.image
     if @track.save
       render :show
     else

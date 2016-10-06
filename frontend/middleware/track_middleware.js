@@ -11,16 +11,16 @@ const trackMiddleware = ({ getState, dispatch}) => (next) => (action) => {
       return TrackAPI.fetchAllTracks(success, error);
     }
     case trackActions.FETCH_SINGLE_TRACK: {
-      const success = (data) => dispatch(trackActions.receiveSingleUser(data));
+      const success = (data) => dispatch(trackActions.receiveSingleTrack(data));
       error = (data) => dispatch(receiveErrors(data.statusText));
-      return TrackAPI.fetchSingleUser(action.id, success, error);
+      return TrackAPI.fetchSingleTrack(action.id, success, error);
     }
     case trackActions.CREATE_TRACK: {
-      const success = (data) => dispatch(trackActions.receiveSingleUser(data));
+      const success = (data) => dispatch(trackActions.receiveSingleTrack(data));
       return TrackAPI.createTrack(action.formData, success, error);
     }
     case trackActions.UPDATE_TRACK: {
-      const success = (data) => dispatch(trackActions.receiveSingleUser(data));
+      const success = (data) => dispatch(trackActions.receiveSingleTrack(data));
       return TrackAPI.updateTrack(action.id, action.formData, success, error);
     }
     default:
