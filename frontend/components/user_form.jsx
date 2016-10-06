@@ -26,7 +26,6 @@ class UserForm extends React.Component {
      if (typeof e.currentTarget.files[0] === "undefined") {
        return;
      }
-     debugger
      const file = e.currentTarget.files[0];
      const fileReader = new FileReader();
      fileReader.onloadend = () => {
@@ -44,7 +43,9 @@ class UserForm extends React.Component {
      formData.append("user[last_name]", this.state.lastName);
      formData.append("user[city]", this.state.city);
      formData.append("user[country]", this.state.country);
-     formData.append("user[profile_picture]", this.state.profileImageFile);
+     if (this.state.profileImageFile) {
+       formData.append("user[profile_picture]", this.state.profileImageFile);
+     }
      this.props.updateUser(this.props.user.id, formData).then(() => {
        this.props.closeModal();
      });
