@@ -17,7 +17,6 @@ export const fetchSingleUser = (id, success, error) => {
 };
 
 export const updateUser = (id, formData, success, error) => {
-  debugger
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${id}`,

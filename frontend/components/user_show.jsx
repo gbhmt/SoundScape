@@ -1,33 +1,38 @@
 import React from 'react';
-
+import { userModalStyle } from '../util/modal_styles.js';
+import UserForm from './user_form.jsx';
+import Modal from 'react-modal';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalOpen: false,
-    };
+    this.state = {  modalOpen: false };
     this.savePic = this.savePic.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
+
   componentDidMount () {
     this.props.fetchSingleUser(this.props.params.id);
   }
 
+  openModal () {
+    this.setState({ modalOpen: true });
+  }
+
+  closeModal () {
+    this.setState({ modalOpen: false });
+  }
+
   savePic (type, e) {
     const formData = new FormData();
+    if (typeof e.currentTarget.files[0] === "undefined") {
+      return;
+    }
     formData.append(`user[${type}]`, e.currentTarget.files[0]);
     this.props.updateUser(this.props.user.id, formData);
   }
-  // updateFile (type, e) {
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ [`${type}File`]: file, [`${type}Url`]: fileReader.result });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataUrl(file);
-  //   }
-  // }
+
   render () {
     const { currentUser, user, params } = this.props;
     let uploadProfilePicture;
@@ -62,7 +67,17 @@ class UserShow extends React.Component {
           </header>
           <aside className="sub-header">
             { editProfile }
+            { user.bio }
           </aside>
+
+          <Modal
+            isOpen={ this.state.modalOpen }
+            onRequestClose={ this.closeModal }
+            style={ userModalStyle }>
+
+          <UserForm closeModal={ this.closeModal } updateUser={ this.props.updateUser } user={ this.props.user } />
+
+          </Modal>
         </div>
       );
     } else {

@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.store = store;
-  window.fetchSingleUser = fetchSingleUser;
 
   Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, document.getElementById("root"));

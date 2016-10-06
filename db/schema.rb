@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005180820) do
+ActiveRecord::Schema.define(version: 20161005235432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161005180820) do
     t.string   "header_background_content_type"
     t.integer  "header_background_file_size"
     t.datetime "header_background_updated_at"
+    t.text     "bio"
   end
 
   add_index "users", ["display_name"], name: "index_users_on_display_name", unique: true, using: :btree

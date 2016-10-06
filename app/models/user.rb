@@ -21,6 +21,7 @@
 #  header_background_content_type :string
 #  header_background_file_size    :integer
 #  header_background_updated_at   :datetime
+#  bio                            :text
 #
 
 class User < ActiveRecord::Base
