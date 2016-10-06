@@ -56,17 +56,17 @@ class UserShow extends React.Component {
       }
       const fullName = user.first_name + " " + user.last_name;
       const location = user.city + ", " + user.country;
-      let background;
+      let backgroundImage;
       if (user.header_background_url === "/header_backgrounds/original/missing.png") {
-        background = "linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%)";
+        backgroundImage = "linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%)";
       } else {
-        background = "transparent";
+        backgroundImage = `url(${user.header_background_url})`;
       }
       // const backgroundStyle = { backgroundImage: `url(${user.header_background_url})`,
-      //                           background: background };
+      //                           backgroundcolor: background };
       return (
         <div className="content-header group">
-          <header style={ { backgroundImage: `url(${user.header_background_url})` } }
+          <header style={ { backgroundImage } }
               className="user-header-container group">
             <span className="profile-picture">
             <img src={ user.profile_picture_url } />
