@@ -45,6 +45,7 @@ class UserForm extends React.Component {
      formData.append("user[last_name]", this.state.lastName);
      formData.append("user[city]", this.state.city);
      formData.append("user[country]", this.state.country);
+     formData.append("user[bio]", this.state.bio);
      if (this.state.profileImageFile) {
        formData.append("user[profile_picture]", this.state.profileImageFile);
      }
