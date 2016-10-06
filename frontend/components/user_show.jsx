@@ -40,35 +40,55 @@ class UserShow extends React.Component {
     let uploadBackground;
     if (user) {
       if (currentUser && (currentUser.id === user.id)) {
-        uploadProfilePicture = <input
+        uploadProfilePicture = <label htmlFor="update-image">Update image
+          <input
+          id="update-image"
           className="upload-profile"
           type="file"
-          onChange={ (e) => this.savePic("profile_picture", e) }/>;
+          onChange={ (e) => this.savePic("profile_picture", e) }/></label>;
         editProfile = <button className="edit" onClick={ this.openModal }>Edit</button>;
-        uploadBackground = <input
+        uploadBackground = <label htmlFor="upload-background">Update header background
+          <input
+          id="upload-background"
           className="upload-background"
           type="file"
-          onChange={ (e) => this.savePic("header_background", e) }
-          />;
+          onChange={ (e) => this.savePic("header_background", e) }/></label>;
       }
       const fullName = user.first_name + " " + user.last_name;
       const location = user.city + ", " + user.country;
+      let background;
+      if (user.header_background_url === "/header_backgrounds/original/missing.png") {
+        background = "linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%)";
+      } else {
+        background = "transparent";
+      }
+      // const backgroundStyle = { backgroundImage: `url(${user.header_background_url})`,
+      //                           background: background };
       return (
-        <div>
-          <header className="user-header group">
+        <div className="content-header group">
+          <header style={ { backgroundImage: `url(${user.header_background_url})` } }
+              className="user-header-container group">
             <span className="profile-picture">
-              <img src={ user.profile_picture_url } />
-              { uploadProfilePicture }
+            <img src={ user.profile_picture_url } />
+            { uploadProfilePicture }
             </span>
-            <h1 className="display-name">{ user.display_name }</h1>
-            <h2 className="full-name">{ fullName }</h2>
-            <h3 className="location">{ location }</h3>
+            <div className="user-header">
+              <h1>{ user.display_name }</h1><br />
+              <h2>{ fullName }</h2><br />
+              <h3>{ location }</h3>
+            </div>
             { uploadBackground }
+
           </header>
-          <aside className="sub-header">
+
+          <span className="group">
             { editProfile }
+          </span>
+          <section className="main-content">
+            <aside>
             { user.bio }
-          </aside>
+            </aside>
+          </section>
 
           <Modal
             isOpen={ this.state.modalOpen }

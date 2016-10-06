@@ -26,6 +26,7 @@ class UserForm extends React.Component {
      if (typeof e.currentTarget.files[0] === "undefined") {
        return;
      }
+     debugger
      const file = e.currentTarget.files[0];
      const fileReader = new FileReader();
      fileReader.onloadend = () => {
