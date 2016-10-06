@@ -16,6 +16,12 @@ class UserShow extends React.Component {
     this.props.fetchSingleUser(this.props.params.id);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.user && this.props.user.id !== parseInt(nextProps.params.id)) {
+      this.props.fetchSingleUser(nextProps.params.id);
+    }
+  }
+
   openModal () {
     this.setState({ modalOpen: true });
   }
@@ -55,15 +61,30 @@ class UserShow extends React.Component {
           onChange={ (e) => this.savePic("header_background", e) }/></label>;
       }
       const fullName = user.first_name + " " + user.last_name;
-      const location = user.city + ", " + user.country;
+      let location;
+      if (user.city && user.country) {
+        location = user.city + ", " + user.country;
+      } else {
+        location = user.city + user.country;
+      }
+      let hideName;
+      let hideCity;
+      let hideDisplayName;
+      if (fullName === " ") {
+        hideName = "hidden";
+      }
+      if (location === "") {
+        hideCity = "hidden";
+      }
+      if (user.display_name === "") {
+        hideDisplayName = "hidden";
+      }
       let backgroundImage;
       if (user.header_background_url === "/header_backgrounds/original/missing.png") {
         backgroundImage = "linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%)";
       } else {
         backgroundImage = `url(${user.header_background_url})`;
       }
-      // const backgroundStyle = { backgroundImage: `url(${user.header_background_url})`,
-      //                           backgroundcolor: background };
       return (
         <div className="content-header group">
           <header style={ { backgroundImage } }
@@ -73,9 +94,9 @@ class UserShow extends React.Component {
             { uploadProfilePicture }
             </span>
             <div className="user-header">
-              <h1>{ user.display_name }</h1><br />
-              <h2>{ fullName }</h2><br />
-              <h3>{ location }</h3>
+              <h1 className={ hideDisplayName }>{ user.display_name }</h1><br />
+              <h2 className={ hideName }>{ fullName }</h2><br />
+              <h3 className={ hideCity }>{ location }</h3>
             </div>
             { uploadBackground }
 

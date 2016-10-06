@@ -31,10 +31,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 
-  has_attached_file :profile_picture, default_url: "/images/:style/missing.png"
+  has_attached_file :profile_picture, default_url: ActionController::Base.helpers.asset_path("default-profile-picture.png")
   validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
   has_attached_file :header_background
   validates_attachment_content_type :header_background, content_type: /\Aimage\/.*\z/
+
+  has_many :tracks
 
 
   def self.find_by_credentials(email, password)
@@ -66,4 +68,12 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  def set_defaults
+    self.display_name = ""
+    self.first_name = ""
+    self.last_name = ""
+    self.city = ""
+    self.country = ""
+    self.bio = ""
+  end
 end
