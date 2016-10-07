@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form_container.jsx';
+import TrackFormContainer from './track_form_container.js';
+import { authModalStyle, userModalStyle } from '../util/modal_styles.js';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { modalOpen: false, whichButton: "" };
+    this.state = { modalOpen: false, whichButton: "", modalType: "" };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.logout = this.logout.bind(this);
@@ -14,6 +16,7 @@ class Header extends React.Component {
 
   closeModal () {
     this.setState({ modalOpen: false, whichButton: "" });
+    this.props.clearErrors();
   }
 
   openModal (button) {
@@ -25,12 +28,30 @@ class Header extends React.Component {
     this.props.logout();
   }
 
+  handleModal (action, button) {
+    if (action === "upload") {
+      this.setState({ modalType: action, modalOpen: true });
+    } else {
+      this.setState({ modalType: action, whichButton: button, modalOpen: true });
+    }
+  }
+
   render () {
     let buttons;
+    let form;
+    let modalStyle;
+    if (this.state.modalType === "upload") {
+      form = <TrackFormContainer closeModal={ this.closeModal } />;
+      modalStyle = userModalStyle;
+    } else {
+      form = <SessionFormContainer closeModal={ this.closeModal } initialFormType={ this.state.whichButton } />;
+      modalStyle = authModalStyle;
+    }
     const { currentUser } = this.props;
     if (currentUser) {
       buttons = (
         <div>
+          <button className="upload" onClick={ () => this.handleModal("upload") }>Upload</button>
           <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.email }</Link>
           <button className="logout" onClick={ this.logout }>Logout</button>
         </div>
@@ -38,18 +59,10 @@ class Header extends React.Component {
     } else {
       buttons = (
         <div>
-          <button className="login" onClick={ () => this.openModal("login") }>Sign In</button>
+          <button className="login" onClick={ () => this.handleModal("session", "login") }>Sign In</button>
           <span>or</span>
-          <button className="signup" onClick={ () => this.openModal("signup") }>Create Account</button>
-        <Modal
-          isOpen={ this.state.modalOpen }
-          onRequestClose={ this.closeModal }
-          style={ this.props.style }>
-
-          <SessionFormContainer initialFormType={ this.state.whichButton } />
-
-        </Modal>
-
+          <button className="signup" onClick={ () => this.handleModal("session", "signup") }>Create Account</button>
+          <button className="upload" onClick={ () =>this.handleModal("session", "login") }>Upload</button>
         </div>
       );
     }
@@ -62,6 +75,15 @@ class Header extends React.Component {
             { buttons }
           </div>
         </div>
+        <Modal
+          isOpen={ this.state.modalOpen }
+          onRequestClose={ this.closeModal }
+          style={ modalStyle }>
+
+          { form }
+
+        </Modal>
+
       </div>
     );
   }

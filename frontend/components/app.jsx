@@ -6,7 +6,7 @@ import { authModalStyle } from '../util/modal_styles.js';
 
 const App = ({ children }) => (
   <div>
-    <HeaderContainer style={ authModalStyle } />
+    <HeaderContainer />
     { children }
   </div>
 );

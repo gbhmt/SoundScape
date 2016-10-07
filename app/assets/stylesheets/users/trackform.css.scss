@@ -1,0 +1,92 @@
+.track-form-heading {
+  display: block;
+
+}
+
+.upload-inputs {
+  float: left;
+}
+
+.text-inputs {
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.track-image {
+  height: 260px;
+  width: 260px;
+  background-image: linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%);
+}
+
+.text-inputs label {
+}
+
+.title-field {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 7px 8px;
+  border-radius: 5px;
+  width: 450px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.description-field {
+  height: 130px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 7px;
+  width: 454px;
+  border: 1px solid #ccc;
+}
+
+label[for=track-image-button] {
+  display: inline-block;
+  position: absolute;
+  top: 295px;
+  left: 100px;
+  padding: 5px 11px 3px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+label[for=track-button] {
+  display: block;
+  height: 26px;
+  margin-top: 20px;
+  padding-top: 13px;
+  text-align: center;
+  background: #f50;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.text-inputs button {
+  margin-top: 62px;
+  float: right;
+  padding: 5px 11px 3px 10px;
+  border: 1px solid;
+  border-color: #f50;
+  border-radius: 3px;
+  background-color: #f50;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+}
+
+.track-errors {
+  float: left;
+}
+.track-form-container input[type=file] {
+  display: none;
+}

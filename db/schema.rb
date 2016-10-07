@@ -11,34 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005235432) do
+ActiveRecord::Schema.define(version: 20161006222057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "tracks", force: :cascade do |t|
+    t.string   "title",                                null: false
+    t.text     "description",             default: ""
+    t.integer  "user_id",                              null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "track_file_file_name"
+    t.string   "track_file_content_type"
+    t.integer  "track_file_file_size"
+    t.datetime "track_file_updated_at"
+  end
+
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                          null: false
-    t.string   "password_digest",                null: false
-    t.string   "session_token",                  null: false
+    t.string   "email",                                       null: false
+    t.string   "password_digest",                             null: false
+    t.string   "session_token",                               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "profile_picture_file_name"
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
-    t.string   "display_name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "city"
-    t.string   "country"
+    t.string   "display_name",                   default: ""
+    t.string   "first_name",                     default: ""
+    t.string   "last_name",                      default: ""
+    t.string   "city",                           default: ""
+    t.string   "country",                        default: ""
     t.string   "header_background_file_name"
     t.string   "header_background_content_type"
     t.integer  "header_background_file_size"
     t.datetime "header_background_updated_at"
-    t.text     "bio"
+    t.text     "bio",                            default: ""
   end
 
-  add_index "users", ["display_name"], name: "index_users_on_display_name", unique: true, using: :btree
   add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
 
 end

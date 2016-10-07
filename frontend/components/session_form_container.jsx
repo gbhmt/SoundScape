@@ -9,7 +9,7 @@ const mapStateToProps = ({ currentUser, errors }) => {
   return {
     loggedIn: currentUserExists,
     errors
-  }
+  };
 };
 
 

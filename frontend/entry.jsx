@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
 import {fetchSingleUser} from './util/users_api_util.js';
+import merge from 'lodash/merge';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.store = store;
+  window.merge = merge;
 
   Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, document.getElementById("root"));

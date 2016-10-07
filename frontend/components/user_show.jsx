@@ -2,11 +2,12 @@ import React from 'react';
 import { userModalStyle } from '../util/modal_styles.js';
 import UserForm from './user_form.jsx';
 import Modal from 'react-modal';
+import TrackFormContainer from './track_form_container.js';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  modalOpen: false };
+    this.state = {  modalOpen: false, modalType: "" };
     this.savePic = this.savePic.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -14,6 +15,12 @@ class UserShow extends React.Component {
 
   componentDidMount () {
     this.props.fetchSingleUser(this.props.params.id);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.user && this.props.user.id !== parseInt(nextProps.params.id)) {
+      this.props.fetchSingleUser(nextProps.params.id);
+    }
   }
 
   openModal () {
@@ -55,15 +62,30 @@ class UserShow extends React.Component {
           onChange={ (e) => this.savePic("header_background", e) }/></label>;
       }
       const fullName = user.first_name + " " + user.last_name;
-      const location = user.city + ", " + user.country;
+      let location;
+      if (user.city && user.country) {
+        location = user.city + ", " + user.country;
+      } else {
+        location = user.city + user.country;
+      }
+      let hideName;
+      let hideCity;
+      let hideDisplayName;
+      if (fullName === " ") {
+        hideName = "hidden";
+      }
+      if (location === "") {
+        hideCity = "hidden";
+      }
+      if (user.display_name === "") {
+        hideDisplayName = "hidden";
+      }
       let backgroundImage;
       if (user.header_background_url === "/header_backgrounds/original/missing.png") {
         backgroundImage = "linear-gradient(315deg, rgb(218, 218, 215) 0%, rgb(104, 94, 93) 100%)";
       } else {
         backgroundImage = `url(${user.header_background_url})`;
       }
-      // const backgroundStyle = { backgroundImage: `url(${user.header_background_url})`,
-      //                           backgroundcolor: background };
       return (
         <div className="content-header group">
           <header style={ { backgroundImage } }
@@ -73,9 +95,9 @@ class UserShow extends React.Component {
             { uploadProfilePicture }
             </span>
             <div className="user-header">
-              <h1>{ user.display_name }</h1><br />
-              <h2>{ fullName }</h2><br />
-              <h3>{ location }</h3>
+              <h1 className={ hideDisplayName }>{ user.display_name }</h1><br />
+              <h2 className={ hideName }>{ fullName }</h2><br />
+              <h3 className={ hideCity }>{ location }</h3>
             </div>
             { uploadBackground }
 
@@ -98,6 +120,7 @@ class UserShow extends React.Component {
           <UserForm closeModal={ this.closeModal } updateUser={ this.props.updateUser } user={ this.props.user } />
 
           </Modal>
+
         </div>
       );
     } else {

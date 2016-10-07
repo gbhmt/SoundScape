@@ -1,4 +1,4 @@
-.user-form-container {
+.user-form-container .track-form-container {
   position: relative;
   padding-bottom: 40px;
   border-bottom: 1px solid #f2f2f2;
@@ -11,7 +11,7 @@
 }
 
 
-.user-form-heading {
+.user-form-heading, .track-form-heading {
   font-size: 22px;
   line-height: 1;
   padding-bottom: 9px;
