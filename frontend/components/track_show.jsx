@@ -50,7 +50,6 @@ class TrackShow extends React.Component {
     });
   }
   render () {
-    debugger
     const { currentUser, track } = this.props;
     let uploadImage;
     let editTrack;

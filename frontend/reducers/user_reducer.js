@@ -10,7 +10,7 @@ const userReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_TRACK:
       if (state[action.track.user.id]) {
         const newTracks = state[action.track.user.id].tracks.slice();
-        newTracks.push(action.track.id);
+        newTracks.push(action.track);
         return merge({}, state, { [action.track.user.id]: {tracks: newTracks}});
       }
       return state;
