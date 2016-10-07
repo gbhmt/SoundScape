@@ -2,12 +2,12 @@ import React from 'react';
 import { userModalStyle } from '../util/modal_styles.js';
 import UserForm from './user_form.jsx';
 import Modal from 'react-modal';
-import TrackFormContainer from './track_form_container.js';
+
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  modalOpen: false, modalType: "" };
+    this.state = {  modalOpen: false };
     this.savePic = this.savePic.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -41,7 +41,7 @@ class UserShow extends React.Component {
   }
 
   render () {
-    const { currentUser, user, params } = this.props;
+    const { currentUser, user } = this.props;
     let uploadProfilePicture;
     let editProfile;
     let uploadBackground;

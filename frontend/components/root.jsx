@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import UserShowContainer from './user_show_container.js';
+import TrackShowContainer from './track_show_container.js';
 
 
 
@@ -20,6 +21,7 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <Route path="users/:id" component={ UserShowContainer } />
+          <Route path="tracks/:id" component={ TrackShowContainer } />
         </Route>
       </Router>
     </Provider>

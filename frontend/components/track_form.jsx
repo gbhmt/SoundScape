@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Spinner from 'react-spinkit';
+
 
 
 class TrackForm extends React.Component {
@@ -13,9 +15,12 @@ class TrackForm extends React.Component {
       trackUrl: this.props.track ? this.props.track.track_file_url : "",
       trackFile: "",
       formModified: false,
+      spinner: false
     };
     this.editing = this.props.track ? true : false;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.startSpinner = this.startSpinner.bind(this);
+    this.stopSpinner = this.stopSpinner.bind(this);
   }
 
   handleChange (field, e) {
@@ -38,6 +43,7 @@ class TrackForm extends React.Component {
    }
 
    handleSubmit () {
+     this.startSpinner();
      const formData = new FormData();
      formData.append("track[title]", this.state.title);
      formData.append("track[description]", this.state.description);
@@ -51,13 +57,21 @@ class TrackForm extends React.Component {
        this.props.updateTrack(this.props.track.id, formData).then(() => {
          this.props.closeModal();
         //  this.props.router.push(`/tracks/${this.props.track.id}`);
-       });
+      }, () => this.stopSpinner());
      } else {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
         //  this.props.router.push(`/tracks/${track.id}`);
-       });
+      }, () => this.stopSpinner());
      }
+   }
+
+   startSpinner () {
+     this.setState({ spinner: true });
+   }
+
+   stopSpinner () {
+     this.setState({ spinner: false });
    }
 
    render () {
@@ -70,6 +84,11 @@ class TrackForm extends React.Component {
      } else {
        heading = "Add a new track";
      }
+     let spinner;
+     if (this.state.spinner) {
+       spinner = <Spinner spinnerName="cube-grid" />;
+     }
+
      return (
          <div className="track-form-container group">
            <h1 className="track-form-heading">{ heading }</h1>
@@ -94,6 +113,7 @@ class TrackForm extends React.Component {
                <button onClick={ this.handleSubmit }>Submit</button>
              </div>
             </div>
+            { spinner }
           </div>
      );
    }
