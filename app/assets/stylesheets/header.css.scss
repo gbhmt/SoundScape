@@ -21,7 +21,6 @@
   padding: 6px 10px 4px 10px;
   border-radius: 5px;
   background: #f50;
-  margin-right: 30px;
 }
 
 .login:hover {
@@ -32,7 +31,7 @@
   padding: 6px 10px 4px 10px;
   border-radius: 5px;
   background: #f50;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .login {
@@ -45,7 +44,7 @@
   padding: 6px 10px 4px 10px;
   border-radius: 3px;
   border: 1px solid #666;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .header-nav span {
@@ -53,6 +52,17 @@
   padding: 0 10px;
   color: #999;
 }
+
+.upload {
+  display: inline-block;
+  padding: 2px 15px;
+  color: #999;
+}
+
+.upload:hover {
+  color: white;
+}
+
 
 .search {
   display: block;

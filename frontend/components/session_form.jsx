@@ -20,6 +20,7 @@ class SessionForm extends React.Component {
       this.props.signup(user);
     }
     this.setState({ email: "", password: ""});
+    this.props.closeModal();
   }
 
   handleChange (field, e) {

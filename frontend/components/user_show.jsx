@@ -121,7 +121,6 @@ class UserShow extends React.Component {
 
           </Modal>
 
-          <TrackFormContainer />
         </div>
       );
     } else {
