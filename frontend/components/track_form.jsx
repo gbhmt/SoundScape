@@ -50,12 +50,12 @@ class TrackForm extends React.Component {
      if (this.editing) {
        this.props.updateTrack(this.props.track.id, formData).then(() => {
          this.props.closeModal();
-         this.props.router.push(`/tracks/${this.props.track.id}`);
+        //  this.props.router.push(`/tracks/${this.props.track.id}`);
        });
      } else {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
-         this.props.router.push(`/tracks/${track.id}`);
+        //  this.props.router.push(`/tracks/${track.id}`);
        });
      }
    }
@@ -64,28 +64,36 @@ class TrackForm extends React.Component {
      const allErrors = this.props.errors.map((error, idx) => {
        return <li className="form-error" key={ idx }>{ error }</li>;
      });
+     let heading;
+     if (this.editing) {
+       heading = "Edit track";
+     } else {
+       heading = "Add a new track";
+     }
      return (
-         <div className="track-form-container">
+         <div className="track-form-container group">
+           <h1 className="track-form-heading">{ heading }</h1>
            <div className="upload-inputs">
              <img className="track-image" src={ this.state.imageUrl }/>
-             <label htmlFor="pic-button">Update image
-             <input id="pic-button" type="file" onChange={ (e) => this.updateFile("image", e) }/></label>
+             <label htmlFor="track-image-button">Update image
+             <input id="track-image-button" type="file" onChange={ (e) => this.updateFile("image", e) }/></label>
              <label htmlFor="track-button">Choose a file to upload
              <input id="track-button" type="file" onChange={ (e) => this.updateFile("track", e) }/></label>
            </div>
-           <div className="text-inputs">
-             <ul>
-               { allErrors }
-             </ul>
+           <div className="text-inputs group">
              <label>Title</label>
              <input className="title-field" type="text"
                value={ this.state.title } onChange={ (e) => this.handleChange("title", e) }/>
              <label>Description</label>
              <textarea className="description-field" value={ this.state.description }
                onChange={ (e) => this.handleChange("description", e) }/>
+             <div className="submit-and-errors">
+               <ul className="track-errors">
+                 { allErrors }
+               </ul>
+               <button onClick={ this.handleSubmit }>Submit</button>
+             </div>
             </div>
-
-            <button onClick={ this.handleSubmit }>Submit</button>
           </div>
      );
    }

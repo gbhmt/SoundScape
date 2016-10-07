@@ -16,6 +16,7 @@ class Header extends React.Component {
 
   closeModal () {
     this.setState({ modalOpen: false, whichButton: "" });
+    this.props.clearErrors();
   }
 
   openModal (button) {

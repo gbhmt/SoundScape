@@ -7,8 +7,8 @@ import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
   currentUser: sessionReducer,
   errors: errorReducer,
-  users: userReducer,
-  tracks: trackReducer
+  tracks: trackReducer,
+  users: userReducer
 });
 
 export default rootReducer;
