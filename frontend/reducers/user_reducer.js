@@ -5,18 +5,16 @@ import merge from 'lodash/merge';
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_ALL_USERS:
-      const result = {};
-      action.users.forEach((user) => {
-        result[user.id] = user;
-      });
-      return result;
     case RECEIVE_SINGLE_USER:
-      return merge({}, state, {[action.user.id]: action.user});
+      return {[action.user.id]: action.user};
     case RECEIVE_SINGLE_TRACK:
-      const newTracks = state[action.track.user_id].tracks.slice();
-      newTracks.push(action.track.id);
-      return merge({}, state, { [action.track.user_id]: {tracks: newTracks}});
+    debugger
+      if (state[action.track.user.id]) {
+        const newTracks = state[action.track.user.id].tracks.slice();
+        newTracks.push(action.track.id);
+        return merge({}, state, { [action.track.user.id]: {tracks: newTracks}});
+      }
+      return state;
     default:
       return state;
   }

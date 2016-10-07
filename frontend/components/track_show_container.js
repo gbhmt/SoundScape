@@ -3,9 +3,10 @@ import TrackShow from './track_show.jsx';
 import { fetchSingleTrack, updateTrack } from '../actions/track_actions.js';
 
 
-const mapStateToProps = ({ currentUser, tracks }, ownProps) => ({
+const mapStateToProps = ({ currentUser, tracks, users }, ownProps) => ({
   currentUser,
-  track: tracks[ownProps.params.id]
+  track: tracks[ownProps.params.id],
+  // user: 
 });
 
 export default connect(

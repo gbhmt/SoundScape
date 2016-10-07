@@ -6,10 +6,6 @@ import { fetchAllUsers, fetchSingleUser, updateUser } from '../util/users_api_ut
 const userMiddleware = ({ getState, dispatch }) => (next) => (action) => {
   let error = (data) => dispatch(receiveErrors(data.responseJSON));
   switch (action.type) {
-    case userActions.FETCH_ALL_USERS: {
-      const success = (data) => dispatch(userActions.receiveAllUsers(data));
-      return fetchAllUsers(success, error);
-    }
     case userActions.FETCH_SINGLE_USER: {
       const success = (data) => dispatch(userActions.receiveSingleUser(data));
       error = (data) => dispatch(receiveErrors(data.statusText));

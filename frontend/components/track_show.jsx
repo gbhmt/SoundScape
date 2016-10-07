@@ -10,7 +10,9 @@ class TrackShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchSingleTrack(this.props.params.id);
+    if (!this.props.track) {
+      this.props.fetchSingleTrack(this.props.params.id);  
+    }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -40,6 +42,31 @@ class TrackShow extends React.Component {
     const { currentUser, track } = this.props;
     let uploadImage;
     let editTrack;
-    
+    // if (track) {
+    //   if (currentUser && currentUser.id === track.user_id) {
+    //     uploadImage = <label htmlFor="update-image">Update image
+    //       <input
+    //       id="update-image"
+    //       className="update-track-image"
+    //       type="file"
+    //       onChange={ (e) => this.savePic(e) }/></label>;
+    //     editTrack = <button className="edit" onClick={ this.openModal }>Edit</button>;
+    //   }
+    //   return (
+    //     <div className="track-show-header">
+    //       <div className="sub-header">
+    //         <img className="play-button" />
+    //         <h2>{ this.props.track }</h2>
+    //       </div>
+    //
+    //     </div>
+    //   )
+    // } else {
+      return (
+        <h1>asdf</h1>
+      );
+    // }
   }
 }
+
+export default TrackShow;

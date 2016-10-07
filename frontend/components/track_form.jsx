@@ -56,12 +56,12 @@ class TrackForm extends React.Component {
      if (this.editing) {
        this.props.updateTrack(this.props.track.id, formData).then(() => {
          this.props.closeModal();
-        //  this.props.router.push(`/tracks/${this.props.track.id}`);
+         this.props.router.push(`/tracks/${this.props.track.id}`);
       }, () => this.stopSpinner());
      } else {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
-        //  this.props.router.push(`/tracks/${track.id}`);
+         this.props.router.push(`/tracks/${track.id}`);
       }, () => this.stopSpinner());
      }
    }

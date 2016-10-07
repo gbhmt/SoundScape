@@ -3,9 +3,9 @@ import UserShow from './user_show.jsx';
 import { fetchSingleUser, updateUser, destroyUser } from '../actions/user_actions.js';
 
 
-const mapStateToProps = ({ currentUser, users }, ownProps) => ({
+const mapStateToProps = ({ currentUser, user }, ownProps) => ({
   currentUser,
-  user: users[ownProps.params.id]
+  user: user[ownProps.params.id]
 });
 
 
