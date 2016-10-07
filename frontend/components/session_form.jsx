@@ -15,12 +15,16 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = { email: this.state.email, password: this.state.password };
     if (this.state.formType === "login") {
-      this.props.login(user);
+      this.props.login(user).then(() => {
+        this.setState({ email: "", password: ""});
+        this.props.closeModal();
+      });
     } else {
-      this.props.signup(user);
+      this.props.signup(user).then(() => {
+        this.setState({ email: "", password: ""});
+        this.props.closeModal();
+      });
     }
-    this.setState({ email: "", password: ""});
-    this.props.closeModal();
   }
 
   handleChange (field, e) {

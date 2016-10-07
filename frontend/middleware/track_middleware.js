@@ -23,6 +23,10 @@ const trackMiddleware = ({ getState, dispatch}) => (next) => (action) => {
       const success = (data) => dispatch(trackActions.receiveSingleTrack(data));
       return TrackAPI.updateTrack(action.id, action.formData, success, error);
     }
+    case trackActions.DESTROY_TRACK: {
+      const success = (data) => next(trackActions.destroyTrack(data.id));
+      return TrackAPI.destroyTrack(action.id, success, error);
+    }
     default:
       return next(action);
   }

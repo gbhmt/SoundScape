@@ -15,11 +15,11 @@ const userReducer = (state = {}, action) => {
       }
       return state;
     case DESTROY_TRACK:
-      if (state[action.track.user.id]) {
-        const newTracks = state[action.track.user.id].tracks.slice();
+      if (Object.keys(state)[0]) {
+        const newTracks = Object.keys(state)[0].tracks.slice();
         const idx = newTracks.indexOf(action.track.user.id);
         newTracks.splice(idx, 1);
-        return merge({}, state, { [action.track.user.id]: {tracks: newTracks}});
+        return merge({}, state, { [Object.keys(state)[0]]: {tracks: newTracks}});
       }
       return state;
     default:

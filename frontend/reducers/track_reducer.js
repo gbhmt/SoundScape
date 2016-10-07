@@ -14,6 +14,7 @@ const trackReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_TRACK:
       return merge({}, state, {[action.track.id]: action.track});
     case DESTROY_TRACK:
+    debugger
       const newState = merge({}, state)[action.id];
       delete newState[action.id];
       return newState;

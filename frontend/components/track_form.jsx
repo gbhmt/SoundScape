@@ -50,20 +50,19 @@ class TrackForm extends React.Component {
      if (!this.editing) {
        formData.append("track[track_file]", this.state.trackFile);
      }
-     if (this.state.trackFile) {
+     if (this.state.imageFile) {
        formData.append("track[image]", this.state.imageFile);
      }
      if (this.editing) {
        this.props.updateTrack(this.props.track.id, formData).then(() => {
          this.props.closeModal();
-         this.props.router.push(`/tracks/${this.props.track.id}`);
       }, () => this.stopSpinner());
      } else {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
          this.props.router.push(`/tracks/${track.id}`);
       }, () => this.stopSpinner());
-     }
+    }
    }
 
    startSpinner () {
@@ -88,7 +87,12 @@ class TrackForm extends React.Component {
      if (this.state.spinner) {
        spinner = <Spinner spinnerName="cube-grid" />;
      }
-
+     let uploadButton;
+     if (!this.editing) {
+       uploadButton = <label htmlFor="track-button">Choose a file to upload
+                  <input id="track-button" type="file"
+                    onChange={ (e) => this.updateFile("track", e) }/></label>;
+     }
      return (
          <div className="track-form-container group">
            <h1 className="track-form-heading">{ heading }</h1>
@@ -96,8 +100,7 @@ class TrackForm extends React.Component {
              <img className="track-image" src={ this.state.imageUrl }/>
              <label htmlFor="track-image-button">Update image
              <input id="track-image-button" type="file" onChange={ (e) => this.updateFile("image", e) }/></label>
-             <label htmlFor="track-button">Choose a file to upload
-             <input id="track-button" type="file" onChange={ (e) => this.updateFile("track", e) }/></label>
+            { uploadButton }
            </div>
            <div className="text-inputs group">
              <label>Title</label>
@@ -110,7 +113,8 @@ class TrackForm extends React.Component {
                <ul className="track-errors">
                  { allErrors }
                </ul>
-               <button onClick={ this.handleSubmit }>Submit</button>
+               <button disabled={ !this.state.formModified }
+                 onClick={ this.handleSubmit }>Submit</button>
              </div>
             </div>
             { spinner }

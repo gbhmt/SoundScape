@@ -19,4 +19,5 @@ description: "Composed by Billy Strayhorn
 Arranged by Taylor Herron
 Performed by Riley Mulherkar and Juilliard Strings")
 track1.track_file = File.open('app/assets/tracks/01 Love Came, Take 1.mp3')
+track1.image = File.open('app/assets/images/strayhorn.jpg')
 track1.save

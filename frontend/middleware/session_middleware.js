@@ -14,16 +14,13 @@ const sessionMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case LOGIN: {
-      login(action.user, success, error);
-      return next(action);
+      return login(action.user, success, error);
     }
     case LOGOUT: {
       logout(error);
-      return next(action);
     }
     case SIGNUP: {
       signup(action.user, success, error);
-      return next(action);
     }
     default:
       return next(action);

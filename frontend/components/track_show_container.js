@@ -6,7 +6,6 @@ import { fetchSingleTrack, updateTrack, destroyTrack } from '../actions/track_ac
 const mapStateToProps = ({ currentUser, tracks, users }, ownProps) => ({
   currentUser,
   track: tracks[ownProps.params.id],
-  // user:
 });
 
 export default connect(
