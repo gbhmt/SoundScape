@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import TrackShow from './track_show.jsx';
-import { fetchSingleTrack, updateTrack } from '../actions/track_actions.js';
+import { fetchSingleTrack, updateTrack, destroyTrack } from '../actions/track_actions.js';
 
 
 const mapStateToProps = ({ currentUser, tracks, users }, ownProps) => ({
   currentUser,
   track: tracks[ownProps.params.id],
-  // user: 
+  // user:
 });
 
 export default connect(
   mapStateToProps,
-  { fetchSingleTrack, updateTrack }
+  { fetchSingleTrack, updateTrack, destroyTrack }
 )(TrackShow);
