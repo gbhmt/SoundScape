@@ -19,33 +19,33 @@
 .profile-picture {
   display: block;
   float: left;
-  width: 200px;
-  height: 200px;
 }
 
-.profile-picture img {
-  display: block;
-  width: 200px;
-  height: 200px;
+.profile-picture-image {
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
-label[for=update-image] {
+.profile-picture label[for=update-image] {
   position: absolute;
-  padding: 5px 11px 3px 10px;
+  padding: 5px 11px 3px 8px;
   opacity: 0;
   transition: opacity .25s;
-  top: 198px;
-  left: 75px;
+  top: 193px;
+  left: 66px;
+  text-indent: 1px;
 }
 
 .user-header-container label, .edit {
-  padding: 5px 11px 3px 10px;
+  padding: 5px 11px 3px 8px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   background-color: white;
   cursor: pointer;
   font-size: 14px;
+  text-indent: 1px;
 }
 
 .user-header-container label {
@@ -104,6 +104,7 @@ label[for=update-image] {
   float: right;
   width: 300px;
   padding: 30px;
+  white-space: pre-wrap;
 }
 
 .main-content {

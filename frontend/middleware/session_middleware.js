@@ -8,7 +8,6 @@ import { signup, login, logout } from '../util/session_api_util.js';
 const sessionMiddleware = (store) => (next) => (action) => {
   const success = (data) => {
     store.dispatch(receiveCurrentUser(data));
-    store.dispatch(clearErrors());
   };
   const error = (data) => store.dispatch(receiveErrors(data.responseJSON));
 
@@ -17,10 +16,11 @@ const sessionMiddleware = (store) => (next) => (action) => {
       return login(action.user, success, error);
     }
     case LOGOUT: {
-      logout(error);
+      logout(success, error);
+      return next(action);
     }
     case SIGNUP: {
-      signup(action.user, success, error);
+      return signup(action.user, success, error);
     }
     default:
       return next(action);

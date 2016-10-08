@@ -6,13 +6,45 @@
 .track-show-header {
   padding: 15px 20px 20px 30px;
   background-image: linear-gradient(315deg, rgb(142, 137, 136) 0%, rgb(218, 218, 215) 100%);
+  position: relative;
 }
 
+.track-show-header label {
+  padding: 5px 11px 3px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  text-indent: 1px;
+  position: absolute;
+  opacity: 1;
+  transition: opacity .25s;
+  top: 198px;
+  left: 75px;
+}
 .track-show-container .sub-header {
   float: left;
   width: 850px;
   margin-top: 10px;
 }
+
+.update-track-image {
+  display: none;
+}
+
+label[for=update-image] {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .25s;
+  top: 297px;
+  left: 988px;
+}
+
+.track-show-image-wrapper:hover .update-label {
+  opacity: 1;
+}
+
 
 .artist-and-title {
   float: left;
@@ -90,14 +122,17 @@
   background: white;
 }
 
-.desc-and-comments p {
+.desc-and-comments {
+  width: 670px;
   font-size: 14px;
   color: #333;
+  white-space: pre-wrap;
 }
 
 .track-user-image {
   height: 120px;
   width: 120px;
+  object-fit: cover;
   border-radius: 50%;
   display: block;
   margin-bottom: 10px;

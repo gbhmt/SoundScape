@@ -3,6 +3,7 @@ import TrackFormContainer from './track_form_container.js';
 import Modal from 'react-modal';
 import { Link, withRouter } from 'react-router';
 import { userModalStyle } from '../util/modal_styles.js';
+import nl2br from '../util/newline_to_break.jsx';
 
 
 class TrackShow extends React.Component {
@@ -56,7 +57,8 @@ class TrackShow extends React.Component {
     let deleteTrack;
     if (track) {
       if (currentUser && currentUser.id === track.user.id) {
-        uploadImage = <label htmlFor="update-image">Update image
+        uploadImage = <label className="update-label" htmlFor="update-image">
+          <img src={ window.SoundScapeAssets.cameraIcon }/> Update image
           <input
           id="update-image"
           className="update-track-image"
@@ -80,7 +82,10 @@ class TrackShow extends React.Component {
               <h3 className="upload-time">{ track.created_at }</h3>
               <div id="waveform"></div>
             </div>
-            <img className="track-show-image" src={ track.image_url }/>
+            <div className="track-show-image-wrapper">
+              <img className="track-show-image" src={ track.image_url }/>
+              { uploadImage }
+            </div>
           </header>
 
 
@@ -98,7 +103,9 @@ class TrackShow extends React.Component {
               <Link to={ userLink } className="artist-label">{ track.user.display_name }</Link>
             </aside>
             <section className="desc-and-comments">
-              <p>{ track.description }</p>
+              <p>
+                { track.description }
+              </p>
             </section>
 
           </article>

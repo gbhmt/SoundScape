@@ -2,6 +2,7 @@ import React from 'react';
 import { userModalStyle } from '../util/modal_styles.js';
 import UserForm from './user_form.jsx';
 import Modal from 'react-modal';
+import nl2br from '../util/newline_to_break.jsx';
 
 
 class UserShow extends React.Component {
@@ -47,14 +48,16 @@ class UserShow extends React.Component {
     let uploadBackground;
     if (user) {
       if (currentUser && (currentUser.id === user.id)) {
-        uploadProfilePicture = <label htmlFor="update-image">Update image
+        uploadProfilePicture = <label htmlFor="update-image">
+          <img src={ window.SoundScapeAssets.cameraIcon }/> Update image
           <input
           id="update-image"
           className="upload-profile"
           type="file"
           onChange={ (e) => this.savePic("profile_picture", e) }/></label>;
         editProfile = <button className="edit" onClick={ this.openModal }>Edit</button>;
-        uploadBackground = <label htmlFor="upload-background">Update header background
+        uploadBackground = <label htmlFor="upload-background">
+          <img src={ window.SoundScapeAssets.cameraIcon }/> Update header background
           <input
           id="upload-background"
           className="upload-background"
@@ -91,7 +94,7 @@ class UserShow extends React.Component {
           <header style={ { backgroundImage } }
               className="user-header-container group">
             <span className="profile-picture">
-            <img src={ user.profile_picture_url } />
+            <img className="profile-picture-image" src={ user.profile_picture_url } />
             { uploadProfilePicture }
             </span>
             <div className="user-header">

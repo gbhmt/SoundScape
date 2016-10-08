@@ -50,6 +50,7 @@ label[for=pic-button] {
   border-radius: 50%;
   float: left;
   margin-right: 18px;
+  object-fit: cover;
 }
 
 .display-name {
@@ -95,7 +96,6 @@ label[for=pic-button] {
   padding: 4px 7px 2px 7px;
   border: 1px solid #ccc;
   border-radius: 4px;
-
 }
 
 .save-button {
