@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 
-  has_attached_file :profile_picture, default_url: ActionController::Base.helpers.asset_path("default-profile-picture.png")
+  has_attached_file :profile_picture, default_url: "default-profile-picture.png"
   validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
   has_attached_file :header_background
   validates_attachment_content_type :header_background, content_type: /\Aimage\/.*\z/
