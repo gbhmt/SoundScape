@@ -46,7 +46,8 @@ class Header extends React.Component {
       buttons = (
         <div>
           <button className="upload" onClick={ () => this.handleModal("upload") }>Upload</button>
-          <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.email }</Link>
+          <Link className="user-link" to={ `users/${currentUser.id}`}>
+            <img className="user-badge" src={ currentUser.profile_picture_url }/>{ currentUser.email }</Link>
           <button className="logout" onClick={ this.props.logout }>Logout</button>
         </div>
       );

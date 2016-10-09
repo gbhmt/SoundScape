@@ -13,7 +13,7 @@
 .header-list {
   font-size: 14px;
   float: right;
-  padding: 9px;
+  padding: 9px 9px 0 9px;
   color: white;
 }
 
@@ -32,6 +32,7 @@
   border-radius: 5px;
   background: #f50;
   margin-right: 20px;
+  vertical-align: top;
 }
 
 .login {
@@ -42,9 +43,18 @@
 
 .user-link {
   padding: 6px 10px 4px 10px;
-  border-radius: 3px;
-  border: 1px solid #666;
   margin-right: 20px;
+  color: #ccc;
+  margin-bottom: 13px;
+  vertical-align: middle;
+}
+
+.user-badge {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .header-nav span {
@@ -55,8 +65,9 @@
 
 .upload {
   display: inline-block;
-  padding: 2px 15px;
-  color: #999;
+  padding: 2px 10px 2px 15px;
+  color: #ccc;
+  vertical-align: middle;
 }
 
 .upload:hover {
@@ -76,4 +87,8 @@
   width: 180px;
   height: 46px;
   float: left
+}
+
+.upload:hover, .user-link:hover {
+  color: white;
 }
