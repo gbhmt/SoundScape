@@ -34,6 +34,7 @@ class Header extends React.Component {
     let buttons;
     let form;
     let modalStyle;
+    let homePage;
     if (this.state.modalType === "upload") {
       form = <TrackFormContainer closeModal={ this.closeModal } />;
       modalStyle = userModalStyle;
@@ -43,6 +44,7 @@ class Header extends React.Component {
     }
     const { currentUser } = this.props;
     if (currentUser) {
+      homePage = "/tracks";
       buttons = (
         <div>
           <button className="upload" onClick={ () => this.handleModal("upload") }>Upload</button>
@@ -52,6 +54,7 @@ class Header extends React.Component {
         </div>
       );
     } else {
+      homePage = "/"
       buttons = (
         <div>
           <button className="login" onClick={ () => this.handleModal("session", "login") }>Sign In</button>
@@ -64,7 +67,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="header-nav group">
-          <Link to={ "/" }><img className="logo"src={ window.SoundScapeAssets.logo }/></Link>
+          <Link to={ homePage }><img className="logo"src={ window.SoundScapeAssets.logo }/></Link>
           <span className="search">Search bar goes here</span>
           <div className="header-list group">
             { buttons }

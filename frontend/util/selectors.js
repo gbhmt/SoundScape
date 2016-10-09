@@ -7,5 +7,5 @@ export const eachUserTrack = (tracks) => {
 export const allTracks = (tracks) => {
   return Object.keys(tracks).map((key) => {
     return tracks[key];
-  });
+  }).reverse();
 };

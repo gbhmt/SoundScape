@@ -54,6 +54,7 @@ label[for=update-image] {
   width: 340px;
   height: 340px;
   box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+  object-fit: cover;
 }
 
 .play-button {
@@ -127,6 +128,7 @@ label[for=update-image] {
   font-size: 14px;
   color: #333;
   white-space: pre-wrap;
+  float: left;
 }
 
 .track-user-image {
@@ -150,4 +152,9 @@ label[for=update-image] {
 
 .edit-track:hover, .delete:hover {
   border-color: #ccc;
+}
+
+.track-user-aside {
+  float: left;
+  display: block;
 }

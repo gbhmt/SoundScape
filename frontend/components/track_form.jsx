@@ -85,7 +85,7 @@ class TrackForm extends React.Component {
      }
      let spinner;
      if (this.state.spinner) {
-       spinner = <Spinner spinnerName="cube-grid" />;
+       spinner = <Spinner className="spinner" spinnerName="cube-grid" />;
      }
      let uploadButton;
      if (!this.editing) {

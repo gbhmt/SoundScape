@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import nl2br from '../util/newline_to_break.jsx';
 import TrackIndexItemContainer from './track_index_item_container.js';
 import TrackFormContainer from './track_form_container.js';
-import { eachUserTrack } from '../util/selectors.js';
+import { allTracks } from '../util/selectors.js';
 
 
 class UserShow extends React.Component {
@@ -19,20 +19,12 @@ class UserShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchSingleUser(this.props.params.id).then(() => {
-      if (this.props.user.tracks) {
-        this.props.receiveAllTracks(eachUserTrack(this.props.user.tracks).reverse());
-      }
-    });
+    this.props.fetchSingleUser(this.props.params.id);
   }
 
   componentWillReceiveProps (nextProps) {
     if (this.props.user && this.props.user.id !== parseInt(nextProps.params.id)) {
-      this.props.fetchSingleUser(nextProps.params.id).then(() => {
-        if (this.props.user.tracks) {
-          this.props.receiveAllTracks(eachUserTrack(this.props.user.tracks).reverse());
-        }
-      });
+      this.props.fetchSingleUser(nextProps.params.id);
     }
   }
 
@@ -115,7 +107,7 @@ class UserShow extends React.Component {
       }
       let userTracks;
       if (user.tracks) {
-          userTracks = eachUserTrack(user.tracks).reverse().map((track, idx) => {
+          userTracks = allTracks(user.tracks).map((track, idx) => {
           return <TrackIndexItemContainer handleModal={ this.handleModal } key={ idx } track={ track } />;
         });
       }
