@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.swapForms = this.swapForms.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
 
@@ -15,12 +16,16 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = { email: this.state.email, password: this.state.password };
     if (this.state.formType === "login") {
-      this.props.login(user);
+      this.props.login(user).then(() => {
+        this.setState({ email: "", password: ""});
+        this.props.closeModal();
+      });
     } else {
-      this.props.signup(user);
+      this.props.signup(user).then(() => {
+        this.setState({ email: "", password: ""});
+        this.props.closeModal();
+      });
     }
-    this.setState({ email: "", password: ""});
-    this.props.closeModal();
   }
 
   handleChange (field, e) {
@@ -37,6 +42,13 @@ class SessionForm extends React.Component {
     }
   }
 
+  demoLogin () {
+    const user = { email: "taylorbherron@gmail.com", password: "password" };
+    this.props.login(user).then(() => {
+      this.setState({ email: "", password: ""});
+      this.props.closeModal();
+    });
+  }
 
   render () {
     let header;
@@ -70,6 +82,7 @@ class SessionForm extends React.Component {
           <button className="submit">Continue</button><br />
           <span className="before-link">{ beforeLinkText }</span>
           <button className="swapForms" onClick={ this.swapForms }>{ linkText }</button>
+          <button className="swapForms" onClick={ this.demoLogin }>Demo</button>
         </form>
       </div>
     );

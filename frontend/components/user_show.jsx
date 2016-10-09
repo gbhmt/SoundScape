@@ -2,7 +2,11 @@ import React from 'react';
 import { userModalStyle } from '../util/modal_styles.js';
 import UserForm from './user_form.jsx';
 import Modal from 'react-modal';
+import nl2br from '../util/newline_to_break.jsx';
+import TrackIndexItemContainer from './track_index_item_container.js';
 import TrackFormContainer from './track_form_container.js';
+import { eachUserTrack } from '../util/selectors.js';
+
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -11,15 +15,24 @@ class UserShow extends React.Component {
     this.savePic = this.savePic.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   componentDidMount () {
-    this.props.fetchSingleUser(this.props.params.id);
+    this.props.fetchSingleUser(this.props.params.id).then(() => {
+      if (this.props.user.tracks) {
+        this.props.receiveAllTracks(eachUserTrack(this.props.user.tracks).reverse());
+      }
+    });
   }
 
   componentWillReceiveProps (nextProps) {
     if (this.props.user && this.props.user.id !== parseInt(nextProps.params.id)) {
-      this.props.fetchSingleUser(nextProps.params.id);
+      this.props.fetchSingleUser(nextProps.params.id).then(() => {
+        if (this.props.user.tracks) {
+          this.props.receiveAllTracks(eachUserTrack(this.props.user.tracks).reverse());
+        }
+      });
     }
   }
 
@@ -29,6 +42,10 @@ class UserShow extends React.Component {
 
   closeModal () {
     this.setState({ modalOpen: false });
+  }
+
+  handleModal (action) {
+    this.setState({ modalType: action, modalOpen: true });
   }
 
   savePic (type, e) {
@@ -41,20 +58,30 @@ class UserShow extends React.Component {
   }
 
   render () {
-    const { currentUser, user, params } = this.props;
+    const { currentUser, user } = this.props;
     let uploadProfilePicture;
     let editProfile;
     let uploadBackground;
+    let modalForm;
+    if (this.state.modalType === "editProfile") {
+      modalForm = <UserForm closeModal={ this.closeModal }
+                    updateUser={ this.props.updateUser }
+                    user={ this.props.user } />;
+    } else {
+      modalForm = <TrackFormContainer track={ this.state.modalType } closeModal={ this.closeModal }/>;
+    }
     if (user) {
       if (currentUser && (currentUser.id === user.id)) {
-        uploadProfilePicture = <label htmlFor="update-image">Update image
+        uploadProfilePicture = <label htmlFor="update-image">
+          <img src={ window.SoundScapeAssets.cameraIcon }/> Update image
           <input
           id="update-image"
           className="upload-profile"
           type="file"
           onChange={ (e) => this.savePic("profile_picture", e) }/></label>;
-        editProfile = <button className="edit" onClick={ this.openModal }>Edit</button>;
-        uploadBackground = <label htmlFor="upload-background">Update header background
+        editProfile = <button className="edit" onClick={ () => this.handleModal("editProfile") }>Edit</button>;
+        uploadBackground = <label htmlFor="upload-background">
+          <img src={ window.SoundScapeAssets.cameraIcon }/> Update header background
           <input
           id="upload-background"
           className="upload-background"
@@ -86,12 +113,18 @@ class UserShow extends React.Component {
       } else {
         backgroundImage = `url(${user.header_background_url})`;
       }
+      let userTracks;
+      if (user.tracks) {
+          userTracks = eachUserTrack(user.tracks).reverse().map((track, idx) => {
+          return <TrackIndexItemContainer handleModal={ this.handleModal } key={ idx } track={ track } />;
+        });
+      }
       return (
         <div className="content-header group">
           <header style={ { backgroundImage } }
               className="user-header-container group">
             <span className="profile-picture">
-            <img src={ user.profile_picture_url } />
+            <img className="profile-picture-image" src={ user.profile_picture_url } />
             { uploadProfilePicture }
             </span>
             <div className="user-header">
@@ -103,10 +136,15 @@ class UserShow extends React.Component {
 
           </header>
 
-          <span className="group">
+          <div className="heading-and-edit group">
+            <h1 className="user-tracks-heading">Tracks</h1>
             { editProfile }
-          </span>
-          <section className="main-content">
+          </div>
+          <section className="main-content group">
+            <ul className="tracks-container">
+              <span></span>
+              { userTracks }
+            </ul>
             <aside>
             { user.bio }
             </aside>
@@ -117,7 +155,7 @@ class UserShow extends React.Component {
             onRequestClose={ this.closeModal }
             style={ userModalStyle }>
 
-          <UserForm closeModal={ this.closeModal } updateUser={ this.props.updateUser } user={ this.props.user } />
+            { modalForm }
 
           </Modal>
 

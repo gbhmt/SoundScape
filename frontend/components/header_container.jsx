@@ -9,5 +9,5 @@ const mapStateToProps = ({ currentUser }) => ({ currentUser });
 
 export default connect(
   mapStateToProps,
-  {logout, clearErrors }
+  { logout, clearErrors }
 )(Header);

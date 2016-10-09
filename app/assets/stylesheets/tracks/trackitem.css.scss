@@ -1,0 +1,63 @@
+.tracks-container {
+  width: 819px;
+  display: block;
+  float: left;
+  padding-right: 20px;
+  border-right: 1px solid #f2f2f2;
+}
+
+.track-item-container {
+  width: 819px;
+  margin-bottom: 40px;
+}
+
+.track-item-pic {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  float: left;
+  margin-right: 20px;
+}
+
+.track-item-body {
+  padding-top: 5px;
+}
+
+.track-item-play-button {
+  width: 36px;
+  height: 36px;
+  float: left;
+  margin-right: 5px;
+}
+
+.track-artist-and-title {
+  float: left;
+}
+
+.track-item-display-name {
+  display: block;
+  color: #999;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.track-item-url {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.track-item-created-at {
+  float: right;
+  color: #ccc;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.track-item-body .edit-track, .track-item-body .delete {
+  float: right;
+  margin-top: -5px;
+}
+
+.track-item-body .delete {
+  margin-right: 15px;
+}

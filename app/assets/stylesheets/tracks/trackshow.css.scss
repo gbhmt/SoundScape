@@ -1,0 +1,153 @@
+.track-show-container {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.track-show-header {
+  padding: 15px 20px 20px 30px;
+  background-image: linear-gradient(315deg, rgb(142, 137, 136) 0%, rgb(218, 218, 215) 100%);
+  position: relative;
+}
+
+.track-show-header label {
+  padding: 5px 11px 3px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  text-indent: 1px;
+  position: absolute;
+  opacity: 1;
+  transition: opacity .25s;
+  top: 198px;
+  left: 75px;
+}
+.track-show-container .sub-header {
+  float: left;
+  width: 850px;
+  margin-top: 10px;
+}
+
+.update-track-image {
+  display: none;
+}
+
+label[for=update-image] {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .25s;
+  top: 297px;
+  left: 988px;
+}
+
+.track-show-image-wrapper:hover .update-label {
+  opacity: 1;
+}
+
+
+.artist-and-title {
+  float: left;
+}
+
+.track-show-image {
+  width: 340px;
+  height: 340px;
+  box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.heading-wrapper {
+  display: block;
+  content: "";
+}
+.artist-heading {
+  display: inline-block;
+  color: #ccc;
+  background-color: rgba(0,0,0,.8);
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 2px 7px 3px;
+  margin-bottom: 6px;
+}
+
+.artist-heading:hover {
+  color: #f2f2f2;
+}
+
+.track-title {
+  color: white;
+  font-size: 24px;
+  line-height: 37px;
+  padding: 4px 7px 2px 7px;
+  background-color: rgba(0,0,0,.8);
+}
+.track-show-image {
+  float: right;
+}
+
+.upload-time {
+  display: inline-block;
+  float: right;
+  margin-top: 4px;
+  margin-right: 23px;
+  font-size: 16px;
+  color: white;
+}
+
+.artist-label {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.track-title {
+  display: inline-block;
+}
+
+.track-show-container aside {
+  float: left;
+  padding-right: 30px;
+}
+
+.track-main-content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+.desc-and-comments {
+  width: 670px;
+  font-size: 14px;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.track-user-image {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.edit-track, .delete {
+  padding: 5px 11px 3px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 10px 20px 10px;
+}
+
+.edit-track:hover, .delete:hover {
+  border-color: #ccc;
+}

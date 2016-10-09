@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   currentUser: sessionReducer,
   errors: errorReducer,
   tracks: trackReducer,
-  users: userReducer
+  user: userReducer
 });
 
 export default rootReducer;

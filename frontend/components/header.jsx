@@ -11,7 +11,6 @@ class Header extends React.Component {
     this.state = { modalOpen: false, whichButton: "", modalType: "" };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.logout = this.logout.bind(this);
   }
 
   closeModal () {
@@ -21,11 +20,6 @@ class Header extends React.Component {
 
   openModal (button) {
     this.setState({ modalOpen: true, whichButton: button });
-  }
-
-  logout () {
-    this.closeModal();
-    this.props.logout();
   }
 
   handleModal (action, button) {
@@ -53,7 +47,7 @@ class Header extends React.Component {
         <div>
           <button className="upload" onClick={ () => this.handleModal("upload") }>Upload</button>
           <Link className="user-link" to={ `users/${currentUser.id}`}>{ currentUser.email }</Link>
-          <button className="logout" onClick={ this.logout }>Logout</button>
+          <button className="logout" onClick={ this.props.logout }>Logout</button>
         </div>
       );
     } else {
