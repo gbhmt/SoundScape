@@ -19,11 +19,13 @@ class SessionForm extends React.Component {
       this.props.login(user).then(() => {
         this.setState({ email: "", password: ""});
         this.props.closeModal();
+        this.props.router.push("/tracks");
       });
     } else {
       this.props.signup(user).then(() => {
         this.setState({ email: "", password: ""});
         this.props.closeModal();
+        this.props.router.push("/tracks");
       });
     }
   }
@@ -48,6 +50,7 @@ class SessionForm extends React.Component {
     this.props.login(user).then(() => {
       this.setState({ email: "", password: ""});
       this.props.closeModal();
+      this.props.router.push("/tracks");
     });
   }
 

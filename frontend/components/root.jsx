@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import UserShowContainer from './user_show_container.js';
 import TrackShowContainer from './track_show_container.js';
+import TracksIndexContainer from './tracks_index_container.js';
 
 
 
@@ -20,6 +21,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
+          <Route path="/tracks" component={ TracksIndexContainer } />
           <Route path="users/:id" component={ UserShowContainer } />
           <Route path="tracks/:id" component={ TrackShowContainer } />
         </Route>

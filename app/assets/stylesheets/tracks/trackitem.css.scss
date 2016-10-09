@@ -56,6 +56,13 @@
 .track-item-body .edit-track, .track-item-body .delete {
   float: right;
   margin-top: -5px;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.track-item-container:hover .edit-track,
+.track-item-container:hover .delete {
+  opacity: 1;
 }
 
 .track-item-body .delete {
