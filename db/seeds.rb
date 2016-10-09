@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user1 = User.new(email: "taylorbherron@gmail.com", password: "password")
-user1.update(first_name: "Taylor",
+user1.update(first_name: "Taylor", last_name: "Herron",
  city: "New York", country: "United States",
   display_name: "Taylor Herron", bio: "I play the saxophone and code stuff.")
 user1.profile_picture = File.open('app/assets/images/profile.jpg')

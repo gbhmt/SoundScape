@@ -8,18 +8,23 @@ const userReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_USER:
       return {[action.user.id]: action.user};
     case RECEIVE_SINGLE_TRACK:
-      if (state[action.track.user.id]) {
-        const newTracks = state[action.track.user.id].tracks.slice();
-        newTracks.push(action.track);
-        return merge({}, state, { [action.track.user.id]: {tracks: newTracks}});
+      if (state[action.track.user_id]) {
+        let newTracks = merge({}, state[action.track.user_id].tracks);
+        if (newTracks[action.track.id]) {
+          newTracks[action.track.id] = action.track;
+        } else {
+          newTracks[action.track.id] = action.track;
+        }
+        return merge({}, state, { [action.track.user_id]: {tracks: newTracks}});
       }
       return state;
     case DESTROY_TRACK:
       if (Object.keys(state)[0]) {
-        const newTracks = Object.keys(state)[0].tracks.slice();
-        const idx = newTracks.indexOf(action.track.user.id);
-        newTracks.splice(idx, 1);
-        return merge({}, state, { [Object.keys(state)[0]]: {tracks: newTracks}});
+        const newTracks = merge({}, state[Object.keys(state)].tracks)
+        const newState = merge({}, state);
+        delete newTracks[action.id];
+        newState[Object.keys(newState)].tracks = newTracks;
+        return newState;
       }
       return state;
     default:

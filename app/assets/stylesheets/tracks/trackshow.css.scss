@@ -147,3 +147,7 @@ label[for=update-image] {
   font-size: 14px;
   margin: 0 10px 20px 10px;
 }
+
+.edit-track:hover, .delete:hover {
+  border-color: #ccc;
+}

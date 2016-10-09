@@ -40,7 +40,7 @@ export const userModalStyle = {
     left            : '150px',
     right           : '150px',
     bottom          : '100px',
-    height          : '602px',
+    height          : '390px',
     width           : '800px',
     margin          : '0 auto',
     padding         : '25px',

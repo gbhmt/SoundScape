@@ -56,7 +56,7 @@ class TrackShow extends React.Component {
     let editTrack;
     let deleteTrack;
     if (track) {
-      if (currentUser && currentUser.id === track.user.id) {
+      if (currentUser && currentUser.id === track.user_id) {
         uploadImage = <label className="update-label" htmlFor="update-image">
           <img src={ window.SoundScapeAssets.cameraIcon }/> Update image
           <input
@@ -67,7 +67,7 @@ class TrackShow extends React.Component {
         editTrack = <button className="edit-track" onClick={ this.openModal }>Edit</button>;
         deleteTrack = <button className="delete" onClick={ this.handleDestroy }>Delete</button>
       }
-      const userLink = `/users/${track.user.id}`;
+      const userLink = `/users/${track.user_id}`;
       return (
         <div className="track-show-container group">
           <header className="track-show-header group">
@@ -75,7 +75,7 @@ class TrackShow extends React.Component {
               <img className="play-button" src={ window.SoundScapeAssets.playButton } />
               <span className="artist-and-title">
                 <span className="heading-wrapper">
-                  <Link to={ userLink } className="artist-heading" >{ track.user.display_name }</Link>
+                  <Link to={ userLink } className="artist-heading" >{ track.user_display_name }</Link>
                 </span>
                 <h1 className="track-title">{ track.title }</h1>
               </span>
@@ -98,9 +98,9 @@ class TrackShow extends React.Component {
             <aside className="track-user-aside">
 
               <Link to={ userLink } className="artist-label">
-                <img className="track-user-image" src={ track.user.profile_picture_url }/>
+                <img className="track-user-image" src={ track.user_profile_picture_url }/>
               </Link>
-              <Link to={ userLink } className="artist-label">{ track.user.display_name }</Link>
+              <Link to={ userLink } className="artist-label">{ track.user_display_name }</Link>
             </aside>
             <section className="desc-and-comments">
               <p>
