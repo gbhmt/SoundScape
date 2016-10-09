@@ -42,7 +42,8 @@ class SessionForm extends React.Component {
     }
   }
 
-  demoLogin () {
+  demoLogin (e) {
+    e.preventDefault();
     const user = { email: "taylorbherron@gmail.com", password: "password" };
     this.props.login(user).then(() => {
       this.setState({ email: "", password: ""});
