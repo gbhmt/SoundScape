@@ -44,13 +44,18 @@ label[for=track-image-button] {
   display: inline-block;
   position: absolute;
   top: 295px;
-  left: 100px;
-  padding: 5px 11px 3px 10px;
+  left: 94px;
+  padding: 5px 11px 3px 4px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   background-color: white;
   cursor: pointer;
   font-size: 14px;
+  text-indent: 4px;
+}
+
+label[for=track-image-button] > img {
+  padding-right: 3px;
 }
 
 .upload-inputs label[for=track-button] {

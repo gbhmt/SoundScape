@@ -105,7 +105,8 @@ class TrackForm extends React.Component {
            <h1 className="track-form-heading">{ heading }</h1>
            <div className="upload-inputs">
              <img className="track-image" src={ this.state.imageUrl }/>
-             <label htmlFor="track-image-button">Update image
+             <label htmlFor="track-image-button">
+               <img src={ window.SoundScapeAssets.cameraIcon }/>Update image
              <input id="track-image-button" type="file" onChange={ (e) => this.updateFile("image", e) }/></label>
             { uploadButton }
            </div>
