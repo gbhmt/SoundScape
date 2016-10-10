@@ -40,11 +40,10 @@ export const updateTrack = (id, formData, success, error) => {
   });
 };
 
-export const destroyTrack = (id, success, error) => {
+export const destroyTrack = (id, success) => {
   return $.ajax({
     method: "DELETE",
     url: `/api/tracks/${id}`,
-    success,
-    error
+    success
   });
 };

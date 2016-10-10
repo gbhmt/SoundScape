@@ -14,7 +14,7 @@ class TrackForm extends React.Component {
       imageFile: "",
       trackUrl: this.props.track ? this.props.track.track_file_url : "",
       trackFile: "",
-      formModified: false,
+      submitDisabled: true,
       spinner: false
     };
     this.editing = this.props.track ? true : false;
@@ -24,7 +24,7 @@ class TrackForm extends React.Component {
   }
 
   handleChange (field, e) {
-    this.setState({ [field]: e.currentTarget.value, formModified: true });
+    this.setState({ [field]: e.currentTarget.value, submitDisabled: false });
   }
 
   updateFile (field, e) {
@@ -43,6 +43,7 @@ class TrackForm extends React.Component {
    }
 
    handleSubmit () {
+     this.setState({ submitDisabled: true });
      this.startSpinner();
      const formData = new FormData();
      formData.append("track[title]", this.state.title);
@@ -56,12 +57,18 @@ class TrackForm extends React.Component {
      if (this.editing) {
        this.props.updateTrack(this.props.track.id, formData).then(() => {
          this.props.closeModal();
-      }, () => this.stopSpinner());
+      }, () => {
+        this.stopSpinner();
+        this.setState({ submitDisabled: false })
+      });
      } else {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
          this.props.router.push(`/tracks/${track.id}`);
-      }, () => this.stopSpinner());
+      }, () => {
+        this.stopSpinner();
+        this.setState({ submitDisabled: false })
+      });
     }
    }
 
@@ -98,7 +105,8 @@ class TrackForm extends React.Component {
            <h1 className="track-form-heading">{ heading }</h1>
            <div className="upload-inputs">
              <img className="track-image" src={ this.state.imageUrl }/>
-             <label htmlFor="track-image-button">Update image
+             <label htmlFor="track-image-button">
+               <img src={ window.SoundScapeAssets.cameraIcon }/>Update image
              <input id="track-image-button" type="file" onChange={ (e) => this.updateFile("image", e) }/></label>
             { uploadButton }
            </div>
@@ -113,7 +121,7 @@ class TrackForm extends React.Component {
                <ul className="track-errors">
                  { allErrors }
                </ul>
-               <button disabled={ !this.state.formModified }
+               <button disabled={ this.state.submitDisabled }
                  onClick={ this.handleSubmit }>Submit</button>
              </div>
             </div>

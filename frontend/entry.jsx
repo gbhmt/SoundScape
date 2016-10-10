@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
-import {fetchSingleUser} from './util/users_api_util.js';
 import merge from 'lodash/merge';
 
 document.addEventListener("DOMContentLoaded", () => {
