@@ -9,7 +9,7 @@ const commentMiddleware = ({ dispatch }) => (next) => (action) => {
       return createComment(action.comment, success);
     }
     case CommentActions.DESTROY_COMMENT: {
-      const success = (data) => dispatch(CommentActions.destroyComment(data));
+      const success = (data) => next(action);
       return destroyComment(action.comment, success);
     }
     default:

@@ -4,6 +4,9 @@ import Modal from 'react-modal';
 import { Link, withRouter } from 'react-router';
 import { userModalStyle } from '../util/modal_styles.js';
 import nl2br from '../util/newline_to_break.jsx';
+import CommentContainer from './comment_container.js';
+import CommentFormContainer from './comment_form_container.js';
+import { allComments } from '../util/selectors.js';
 
 
 class TrackShow extends React.Component {
@@ -55,6 +58,7 @@ class TrackShow extends React.Component {
     let uploadImage;
     let editTrack;
     let deleteTrack;
+    let comments;
     if (track) {
       if (currentUser && currentUser.id === track.user_id) {
         uploadImage = <label className="update-label" htmlFor="update-image">
@@ -68,6 +72,11 @@ class TrackShow extends React.Component {
         deleteTrack = <button className="delete" onClick={ this.handleDestroy }>Delete</button>
       }
       const userLink = `/users/${track.user_id}`;
+      if (track.comments) {
+        comments = allComments(track.comments).map((comment, idx) => {
+          return <CommentContainer key={ idx } comment={ comment }/>;
+        });
+      }
       return (
         <div className="track-show-container group">
           <header className="track-show-header group">
@@ -91,22 +100,29 @@ class TrackShow extends React.Component {
 
 
           <article className="track-main-content group">
-            <div className="buttons-and-field">
+            <div className="buttons">
               { editTrack }
               { deleteTrack }
             </div>
-            <aside className="track-user-aside">
+            <div className="track-info-wrapper">
+              <CommentFormContainer type="Track" track={ track }/>
+              <aside className="track-user-aside">
 
-              <Link to={ userLink } className="artist-label">
-                <img className="track-user-image" src={ track.user_profile_picture_url }/>
-              </Link>
-              <Link to={ userLink } className="artist-label">{ track.user_display_name }</Link>
-            </aside>
-            <section className="desc-and-comments">
-              <p>
-                { track.description }
-              </p>
-            </section>
+                <Link to={ userLink } className="artist-label">
+                  <img className="track-user-image" src={ track.user_profile_picture_url }/>
+                </Link>
+                <Link to={ userLink } className="artist-label">{ track.user_display_name }</Link>
+              </aside>
+
+              <section className="desc-and-comments">
+                <p className="description">
+                  { track.description }
+                </p>
+                <ul className="comments-list">
+                  { comments }
+                </ul>
+              </section>
+            </div>
 
           </article>
 

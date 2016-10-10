@@ -5,7 +5,7 @@ export const authModalStyle = {
     left            : 0,
     right           : 0,
     bottom          : 0,
-    backgroundColor : 'rgba(255, 255, 255, 0.75)',
+    backgroundColor : 'rgba(242, 242, 242, 0.9)',
     zIndex         : 10
   },
   content : {
@@ -31,7 +31,7 @@ export const userModalStyle = {
     left            : 0,
     right           : 0,
     bottom          : 0,
-    backgroundColor : 'rgba(255, 255, 255, 0.75)',
+    backgroundColor : 'rgba(242, 242, 242, 0.9)',
     zIndex         : 10
   },
   content : {

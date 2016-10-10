@@ -155,8 +155,10 @@ track11.track_file = File.open('app/assets/tracks/07 Super Rich Kids (feat. Earl
 track11.image = File.open('app/assets/images/channel-orange.jpg')
 track11.save
 
-track12 = Track.new(user_id: 1, title: "Zoetic",
+track12 = Track.new(user_id: 1, title: "BAIA - Zoetic",
 description: "Composed by Peter Nelson
+
+BAIA:
 
 Alto Saxophone: Taylor Herron
 Trombone: Peter Nelson

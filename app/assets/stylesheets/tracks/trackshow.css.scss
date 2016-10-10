@@ -131,6 +131,11 @@ label[for=update-image] {
   float: left;
 }
 
+.buttons {
+  float: right;
+  margin-top: 5px;
+}
+
 .track-user-image {
   height: 120px;
   width: 120px;
@@ -157,4 +162,119 @@ label[for=update-image] {
 .track-user-aside {
   float: left;
   display: block;
+}
+
+.comments-list {
+  border-top: 1px solid #f2f2f2;
+  margin-top: 15px;
+}
+
+.comment-container {
+  width: 670px;
+  padding: 8px;
+}
+
+.comment-badge {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+}
+
+.delete-comment {
+  display: inline-block;
+  padding: 4px 5px 2px 5px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  float: right;
+  opacity: 0;
+}
+
+.delete-comment:hover {
+  opacity: 1
+}
+
+.delete-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.author-and-body {
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.timestamp-and-delete {
+  float: right
+}
+
+.comment-name {
+  display: block;
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.comment-body {
+  font-size: 12px;
+  color: #333;
+}
+
+.comment-name:hover {
+  color: #333;
+}
+
+.timestamp {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #999;
+  display: block;
+
+}
+
+.new-comment-badge {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  float: left;
+}
+
+.track-info-wrapper {
+  width: 840px;
+  height: 495px;
+  border-right: 1px solid #f2f2f2;
+}
+
+.comment-form {
+  width: 817px;
+  height: 41px;
+  background: #f2f2f2;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+}
+
+.comment-input {
+  width: 765px;
+  height: 27px;
+  display: inline-block;
+  margin: 6px 5px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 0 9px;
+  font-size: 14px;
+}
+
+.comment-input:focus {
+  border-color: #999;
+}
+
+.comment-form .active {
+  background: #e5e5e5;
+  border-color: #ccc;
 }
