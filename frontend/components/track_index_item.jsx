@@ -3,23 +3,7 @@ import { Link } from 'react-router';
 
 
 class TrackIndexItem extends React.Component {
-  componentDidMount () {
-    const wavesurfer = WaveSurfer.create({
-      container: `#waveform-${this.props.track.id}`,
-      cursorWidth: 0,
-      maxCanvasWidth: 618,
-      height: 60,
-      barWidth: 2,
-      waveColor: "#ccc",
-      progressColor: "orange"
-    });
-    wavesurfer.load(this.props.track.track_file_url);
-  }
-
-
-
   render () {
-    const waveform = `waveform-${this.props.track.id}`;
     const { track, currentUser, handleModal, destroyTrack } = this.props;
     const userUrl = `/users/${track.user_id}`;
     const trackUrl = `/tracks/${track.id}`;
@@ -43,7 +27,6 @@ class TrackIndexItem extends React.Component {
           <p className="track-item-created-at">{ track.created_at }</p>
           { deleteTrack }
           { editTrack }
-          <div className="waveform" id={ waveform }></div>
         </div>
       </li>
     );
