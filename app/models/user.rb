@@ -12,16 +12,16 @@
 #  profile_picture_content_type   :string
 #  profile_picture_file_size      :integer
 #  profile_picture_updated_at     :datetime
-#  display_name                   :string
-#  first_name                     :string
-#  last_name                      :string
-#  city                           :string
-#  country                        :string
+#  display_name                   :string           default("")
+#  first_name                     :string           default("")
+#  last_name                      :string           default("")
+#  city                           :string           default("")
+#  country                        :string           default("")
 #  header_background_file_name    :string
 #  header_background_content_type :string
 #  header_background_file_size    :integer
 #  header_background_updated_at   :datetime
-#  bio                            :text
+#  bio                            :text             default("")
 #
 
 class User < ActiveRecord::Base
@@ -37,6 +37,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :header_background, content_type: /\Aimage\/.*\z/
 
   has_many :tracks
+  has_many :comments, as: :commentable
+  has_many :authored_comments,
+    foreign_key: :author_id,
+    primary_key: :id,
+    class_name: :Comment
 
 
   def self.find_by_credentials(email, password)

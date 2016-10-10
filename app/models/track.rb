@@ -4,7 +4,7 @@
 #
 #  id                      :integer          not null, primary key
 #  title                   :string           not null
-#  description             :text
+#  description             :text             default("")
 #  user_id                 :integer          not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
@@ -27,4 +27,6 @@ class Track < ActiveRecord::Base
   validates_attachment_content_type :track_file, content_type: /\Aaudio\/.*\z/
 
   belongs_to :user
+
+  has_many :comments, as: :commentable
 end

@@ -4,7 +4,7 @@
 #
 #  id                      :integer          not null, primary key
 #  title                   :string           not null
-#  description             :text
+#  description             :text             default("")
 #  user_id                 :integer          not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null

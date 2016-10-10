@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+# USERS
+
 user1 = User.new(email: "taylorbherron@gmail.com", password: "password")
 user1.update(first_name: "Taylor", last_name: "Herron",
  city: "New York", country: "United States",
@@ -32,6 +35,9 @@ His debut studio album, Channel Orange, was released in July 2012 to critical ac
 user3.profile_picture = File.open('app/assets/images/frank-profile.jpeg')
 user3.header_background = File.open('app/assets/images/frank-header.jpg')
 user3.save
+
+
+# TRACKS
 
 track1 = Track.new(user_id: 1, title: "Love Came ft. Riley Mulherkar",
 description: "Composed by Billy Strayhorn
@@ -163,3 +169,17 @@ Mastered at Bass Hit Recording, NYC")
 track12.track_file = File.open('app/assets/tracks/Zoetic.mp3')
 track12.image = File.open('app/assets/images/profile.jpg')
 track12.save
+
+
+# COMMENTS
+
+comment1 = user1.authored_comments.create(body: "Super dope.", commentable_id: 2, commentable_type: "Track")
+comment2 = user1.authored_comments.create(body: "Good stuff. Very nice.", commentable_id: 3, commentable_type: "Track")
+comment3 = user2.authored_comments.create(body: "I like this song.", commentable_id: 2, commentable_type: "Track")
+comment4 = user3.authored_comments.create(body: "Love it.", commentable_id: 2, commentable_type: "Track")
+comment5 = user3.authored_comments.create(body: "Love it.", commentable_id: 3, commentable_type: "Track")
+comment6 = user1.authored_comments.create(body: "Cool dude right here.", commentable_id: 2, commentable_type: "User")
+comment7 = user2.authored_comments.create(body: "Lame.", commentable_id: 2, commentable_type: "User")
+comment8 = user3.authored_comments.create(body: "What a jerk", commentable_id: 2, commentable_type: "User")
+comment9 = user2.authored_comments.create(body: "This guy looks funny", commentable_id: 1, commentable_type: "User")
+comment9 = user2.authored_comments.create(body: "Pure genius", commentable_id: 3, commentable_type: "User")
