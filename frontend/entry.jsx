@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
-import {fetchSingleUser} from './util/users_api_util.js';
 import merge from 'lodash/merge';
+import { createComment } from './actions/comment_actions.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.store = store;
   window.merge = merge;
+  window.createComment = createComment;
 
   Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, document.getElementById("root"));

@@ -20,6 +20,7 @@ const trackReducer = (state = {}, action) => {
       return newState;
     }
     case RECEIVE_SINGLE_COMMENT: {
+      debugger
       const newComments = merge({}, state[action.comment.commentable_id].comments);
       newComments[action.comment.id] = action.comment;
       return merge({}, state, {[action.comment.commentable_id]: {comments: newComments}});

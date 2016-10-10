@@ -5,14 +5,16 @@ import { createComment, destroyComment } from '../util/comment_api_util.js';
 const commentMiddleware = ({ dispatch }) => (next) => (action) => {
   switch (action.type) {
     case CommentActions.CREATE_COMMENT: {
-      const success = (data) => dispatch(CommentActions.receiveSingleTrack(data));
-      return createComment(action.comment);
+      const success = (data) => dispatch(CommentActions.receiveSingleComment(data));
+      return createComment(action.comment, success);
     }
     case CommentActions.DESTROY_COMMENT: {
-      const success = (data) => dispatch(CommentActions.destroyTrack(data));
-      return destroyComment(action.comment);
+      const success = (data) => dispatch(CommentActions.destroyComment(data));
+      return destroyComment(action.comment, success);
     }
     default:
       return next(action);
   }
 };
+
+export default commentMiddleware;
