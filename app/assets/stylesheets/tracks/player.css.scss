@@ -24,20 +24,18 @@
   padding-top: 9px;
 }
 
-.next-track-button {
-
-}
 
 .playbar-container {
   width: 600px;
   height: 2px;
-  margin: 23px 0 15px 120px;
+  margin: 23px 0 15px 90px;
   background: rgba(0,0,0,.15);
   float: left;
 }
 
 .progress {
-
+  background: orange;
+  height: 2px;
 }
 
 .player-track-info {

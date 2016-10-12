@@ -6,9 +6,16 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.currentTrack = null;
+    this.state = { position: 0 };
   }
 
   componentDidMount () {
+    window.setInterval(() => {
+      if (this.currentTrack && this.props.playerTracks.isPlaying) {
+        this.setState({ position:
+          600 * (this.currentTrack.wavesurfer.getCurrentTime() / this.currentTrack.wavesurfer.getDuration())});
+      }
+    }, 250);
     if (this.props.playerTracks.stack[0]) {
       this.receiveTrack();
     }
@@ -22,7 +29,6 @@ class Player extends React.Component {
 
    componentWillUpdate (nextProps) {
      if (!nextProps.playerTracks.stack[0] && nextProps.playerTracks.isPlaying) {
-       debugger
        this.currentTrack = null;
        this.props.playPause();
      }
@@ -32,7 +38,7 @@ class Player extends React.Component {
     if (!this.currentTrack) {
       this.currentTrack = this.props.playerTracks.stack[0];
       this.currentTrack.wavesurfer.play();
-      if (!this.currentTrack.wavesurfer.handlers) {
+      if (!this.currentTrack.wavesurfer.handlers || !this.currentTrack.wavesurfer.handlers.finish) {
         this.currentTrack.wavesurfer.on('finish', () => {
           this.currentTrack.wavesurfer.seekTo(0);
           this.props.removeWavesurfer(0);
@@ -43,7 +49,7 @@ class Player extends React.Component {
       this.currentTrack.wavesurfer.stop();
       this.currentTrack = this.props.playerTracks.stack[0];
       this.currentTrack.wavesurfer.play();
-      if (!this.currentTrack.wavesurfer.handlers) {
+      if (!this.currentTrack.wavesurfer.handlers || !this.currentTrack.wavesurfer.handlers.finish) {
         this.currentTrack.wavesurfer.on('finish', () => {
           this.currentTrack.wavesurfer.seekTo(0);
           this.props.removeWavesurfer(0);
@@ -64,6 +70,7 @@ class Player extends React.Component {
     let trackTitle;
     let trackBadgeUrl;
     let buttonUrl;
+    let position;
     if (this.props.playerTracks.isPlaying) {
       buttonUrl = window.SoundScapeAssets.playerPause;
     } else {
@@ -83,7 +90,7 @@ class Player extends React.Component {
 
             </button>
             <div className="playbar-container">
-              <div className="progress"></div>
+              <div className="progress" style={ { width: this.state.position + "px"}  }></div>
             </div>
             <div className="player-track-info">
               <img className="player-track-badge" src={ trackBadgeUrl }/>
