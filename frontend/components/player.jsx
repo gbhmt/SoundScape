@@ -51,7 +51,7 @@ class Player extends React.Component {
 
   render () {
     return (
-      <button disabled={ !this.props.playerTracks.stack[0] } onClick={ this.playPause }>CLICK ME</button>
+      <button disabled={ !this.props.playerTracks.stack[0] }></button>
     );
   }
 
