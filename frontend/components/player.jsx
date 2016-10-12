@@ -6,16 +6,19 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.currentTrack = null;
-    this.state = { position: 0 };
+    this.state = { position: 0, progress: 0, duration: 0 };
   }
 
   componentDidMount () {
     window.setInterval(() => {
       if (this.currentTrack && this.props.playerTracks.isPlaying) {
+        const progress = this.currentTrack.wavesurfer.getCurrentTime();
+        const duration = this.currentTrack.wavesurfer.getDuration();
         this.setState({ position:
-          600 * (this.currentTrack.wavesurfer.getCurrentTime() / this.currentTrack.wavesurfer.getDuration())});
+          600 * (progress / duration)
+        });
       }
-    }, 250);
+    }, 500);
     if (this.props.playerTracks.stack[0]) {
       this.receiveTrack();
     }
@@ -83,12 +86,8 @@ class Player extends React.Component {
       return (
         <footer className="player-container">
           <div className="player-ui group">
-            <img className="player-play-button" src={ buttonUrl } onClick={ this.props.playPause }
-              disabled={ !this.props.playerTracks.stack[0] }>
+            <img className="player-play-button" src={ buttonUrl } onClick={ this.props.playPause }>
             </img>
-            <button className="next-track-button">
-
-            </button>
             <div className="playbar-container">
               <div className="progress" style={ { width: this.state.position + "px"}  }></div>
             </div>
