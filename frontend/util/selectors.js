@@ -9,3 +9,10 @@ export const allTracks = (tracks) => {
     return tracks[key];
   }).reverse();
 };
+
+export const findPlayerTrackIdx = (playerState, trackToAdd) => {
+  const idx = playerState.findIndex((playerTrack) => {
+    return playerTrack.track.id === trackToAdd.id;
+  });
+  return idx;
+};

@@ -152,10 +152,17 @@
 
 }
 
-.waveform {
+.indexItemWave {
   float: left !important;
   width: 618px !important;
-  height: 60px !important;
+  margin-left: 10px;
+  vertical-align: bottom !important;
+  margin-top: 40px !important;
+}
+
+.trackShowWave {
+  float: left !important;
+  width: 800px !important;
   vertical-align: bottom !important;
   margin-top: 40px !important;
 }

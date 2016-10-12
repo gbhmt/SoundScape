@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require wavesurfer/wavesurfer.js
+//= require wavesurfer/util.js
+//= require wavesurfer/webaudio.js
+//= require wavesurfer/mediaelement.js
+//= require wavesurfer/drawer.js
+//= require wavesurfer/drawer.canvas.js
+//= require wavesurfer/html-init.js
+//= require wavesurfer/drawer.multicanvas.js
 //= require bundle

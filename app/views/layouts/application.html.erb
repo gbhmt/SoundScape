@@ -5,14 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script> -->
   <script type="text/javascript">
     window.SoundScapeAssets = {
       logo: "<%= image_url("temp-logo.png") %>",
       cameraIcon: "<%= image_url("camera-icon.png") %>",
       playButton: "<%= image_url("playbutton.png") %>",
       deleteIcon: "<%= image_url("delete-icon.png") %>",
-      gradientIcon: "<%= image_url("gradient-icon.jpg") %>"
+      gradientIcon: "<%= image_url("gradient-icon.jpg") %>",
+      pauseButton: "<%= image_url("pausebutton.png") %>"
     }
   </script>
 </head>

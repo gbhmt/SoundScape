@@ -1,11 +1,20 @@
-export const RECEIVE_WAVESURFER = "RECEIVE_WAVESURFER";
+export const ADD_WAVESURFER = "ADD_WAVESURFER";
 export const REMOVE_WAVESURFER = "REMOVE_WAVESURFER";
+export const PLAY_PAUSE = "PLAY_PAUSE";
 
-export const receiveWavesurfer = (wavesurfer) => ({
-  type: RECEIVE_WAVESURFER,
-  wavesurfer
+export const addWavesurfer = (wavesurfer, track) => {
+  return {
+    type: ADD_WAVESURFER,
+    wavesurfer,
+    track
+  }
+};
+
+export const removeWavesurfer = (idx) => ({
+  type: REMOVE_WAVESURFER,
+  idx
 });
 
-export const removeWavesurfer = () => ({
-  type: REMOVE_WAVESURFER
+export const playPause = () => ({
+  type: PLAY_PAUSE
 });

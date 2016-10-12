@@ -7,6 +7,8 @@ import nl2br from '../util/newline_to_break.jsx';
 import CommentContainer from './comment_container.js';
 import CommentFormContainer from './comment_form_container.js';
 import { allComments } from '../util/selectors.js';
+import WavesurferContainer from './wavesurfer_container.js';
+import PlayPauseButtonContainer from './play_pause_button_container.js';
 
 
 class TrackShow extends React.Component {
@@ -17,6 +19,7 @@ class TrackShow extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.savePic = this.savePic.bind(this);
     this.handleDestroy = this.handleDestroy.bind(this);
+    this.play = this.play.bind(this);
   }
 
   componentDidMount () {
@@ -48,17 +51,25 @@ class TrackShow extends React.Component {
     this.props.updateTrack(this.props.track.id, formData);
   }
 
+  play () {
+    this.props.wavesurfer.playPause();
+  }
+
   handleDestroy () {
     this.props.destroyTrack(this.props.track.id).then(() => {
       this.props.router.goBack();
     });
   }
   render () {
-    const { currentUser, track } = this.props;
+    const { currentUser, track, wavesurfer } = this.props;
     let uploadImage;
     let editTrack;
     let deleteTrack;
     let comments;
+    let playPauseButton;
+    if (wavesurfer) {
+      playPauseButton = <PlayPauseButtonContainer wavesurfer={ wavesurfer } track={ track } type="trackShow"/>
+    }
     if (track) {
       if (currentUser && currentUser.id === track.user_id) {
         uploadImage = <label className="update-label" htmlFor="update-image">
@@ -81,7 +92,7 @@ class TrackShow extends React.Component {
         <div className="track-show-container group">
           <header className="track-show-header group">
             <div className="sub-header group">
-              <img className="play-button" src={ window.SoundScapeAssets.playButton } />
+              { playPauseButton }
               <span className="artist-and-title">
                 <span className="heading-wrapper">
                   <Link to={ userLink } className="artist-heading" >{ track.user_display_name }</Link>
@@ -95,6 +106,7 @@ class TrackShow extends React.Component {
               <img className="track-show-image" src={ track.image_url }/>
               { uploadImage }
             </div>
+            <WavesurferContainer track={ this.props.track } type="trackShowWave"/>
           </header>
 
 

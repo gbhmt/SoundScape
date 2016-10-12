@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   tracks: trackReducer,
   user: userReducer,
   wavesurfers: wavesurferReducer,
-  currentTrack: playerReducer
+  playerTracks: playerReducer
 });
 
 export default rootReducer;
