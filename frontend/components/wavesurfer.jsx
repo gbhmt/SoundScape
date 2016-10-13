@@ -47,7 +47,8 @@ class Wavesurfer extends React.Component  {
           barWidth: 2,
           waveColor: "#aaa",
           progressColor: "orange",
-          pixelRatio: 1
+          pixelRatio: 1,
+          visible: visible
         });
         wavesurfer.load(this.props.track.track_file_url);
         this.props.receiveWavesurfer(wavesurfer, this.props.track.id);
