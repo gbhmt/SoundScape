@@ -14,7 +14,9 @@ class PlayPauseButton extends React.Component {
   }
 
   togglePlay () {
-    if (this.isCurrentTrack()) {
+    if (!this.props.wavesurfer) {
+      return;
+    } else if (this.isCurrentTrack()) {
       this.props.playPause();
     } else if (this.props.trackIdxinPlayer === -1) {
       this.props.addWavesurfer(this.props.wavesurfer, this.props.track);
