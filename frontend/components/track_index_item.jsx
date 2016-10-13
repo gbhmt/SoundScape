@@ -40,7 +40,7 @@ class TrackIndexItem extends React.Component {
           { deleteTrack }
           { editTrack }
         </div>
-        <WavesurferContainer track={ this.props.track } type="indexItemWave"/>
+        <WavesurferContainer key={ this.props.track.id } track={ this.props.track } type="indexItemWave"/>
       </li>
     );
   }

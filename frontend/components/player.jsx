@@ -1,5 +1,6 @@
 import React from 'react';
 import { trackIdxinPlayer } from '../util/selectors.js';
+import { Link } from 'react-router';
 
 
 class Player extends React.Component {
@@ -74,6 +75,8 @@ class Player extends React.Component {
     let trackBadgeUrl;
     let buttonUrl;
     let position;
+    let trackUrl;
+    let trackArtistUrl;
     if (this.props.playerTracks.isPlaying) {
       buttonUrl = window.SoundScapeAssets.playerPause;
     } else {
@@ -83,6 +86,8 @@ class Player extends React.Component {
       trackArtist = this.currentTrack.track.user_display_name;
       trackTitle = this.currentTrack.track.title;
       trackBadgeUrl = this.currentTrack.track.image_url;
+      trackUrl = `/tracks/${this.currentTrack.track.id}`;
+      trackArtistUrl = `/users/${this.currentTrack.track.user_id}`;
       return (
         <footer className="player-container">
           <div className="player-ui group">
@@ -94,8 +99,8 @@ class Player extends React.Component {
             <div className="player-track-info">
               <img className="player-track-badge" src={ trackBadgeUrl }/>
               <div className="player-track-and-artist group">
-                <span className="player-track-artist">{ trackArtist }</span>
-                <span className="player-track-title">{ trackTitle }</span>
+                <Link to={ trackArtistUrl } className="player-track-artist">{ trackArtist }</Link>
+                <Link to={ trackUrl } className="player-track-title">{ trackTitle }</Link>
               </div>
             </div>
           </div>

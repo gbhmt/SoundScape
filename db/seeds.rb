@@ -9,6 +9,8 @@
 
 # USERS
 
+User.destroy_all
+
 user1 = User.new(email: "taylorbherron@gmail.com", password: "password")
 user1.update(first_name: "Taylor", last_name: "Herron",
  city: "New York", country: "United States",
@@ -38,6 +40,8 @@ user3.save
 
 
 # TRACKS
+
+Track.destroy_all
 
 track1 = Track.new(user_id: 1, title: "Love Came ft. Riley Mulherkar",
 description: "Composed by Billy Strayhorn
@@ -174,6 +178,8 @@ track12.save
 
 
 # COMMENTS
+
+Comment.destroy_all
 
 comment1 = user1.authored_comments.create(body: "Super dope.", commentable_id: 2, commentable_type: "Track")
 comment2 = user1.authored_comments.create(body: "Good stuff. Very nice.", commentable_id: 3, commentable_type: "Track")
