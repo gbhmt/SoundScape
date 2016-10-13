@@ -68,7 +68,6 @@ class Header extends React.Component {
       <div className="header">
         <div className="header-nav group">
           <Link to={ homePage }><img className="logo"src={ window.SoundScapeAssets.logo }/></Link>
-          <span className="search">Search bar goes here</span>
           <div className="header-list group">
             { buttons }
           </div>

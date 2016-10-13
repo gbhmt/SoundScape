@@ -10,15 +10,32 @@ class Wavesurfer extends React.Component  {
       this.createWavesurfer();
     }
 
+    // componentDidUpdate () {
+    //   const container = document.querySelector(`#waveform-${this.props.track.id}`);
+    //   let wavesurfer = this.props.wavesurfers[this.props.track.id];
+    //   $($(wavesurfer.container)[0]).remove();
+    //   if (this.props.track.id === 1) {
+    //     debugger
+    //   }
+    //   wavesurfer.params.height = 60;
+    //   wavesurfer.container = container;
+    //   wavesurfer.createDrawer();
+    //   wavesurfer.drawBuffer();
+    //   wavesurfer.seekTo(wavesurfer.getCurrentTime() / wavesurfer.getDuration());
+    // }
+
     createWavesurfer () {
       let height;
       let width;
+      let visible = true;
       if (this.props.type === "indexItemWave") {
         height = 60;
         width = 618;
-      } else {
+      } else if (this.props.type === "trackShowWave"){
         height = 120;
         width = 800;
+      } else {
+        visible = false;
       }
       const container = document.querySelector(`#waveform-${this.props.track.id}`);
       if (!this.props.wavesurfers[this.props.track.id]) {
@@ -36,6 +53,7 @@ class Wavesurfer extends React.Component  {
         this.props.receiveWavesurfer(wavesurfer, this.props.track.id);
       } else {
         const wavesurfer = this.props.wavesurfers[this.props.track.id];
+        wavesurfer.visible = visible;
         wavesurfer.params.height = height;
         wavesurfer.container = container;
         wavesurfer.createDrawer();

@@ -117,8 +117,8 @@ class UserShow extends React.Component {
           <header style={ { backgroundImage } }
               className="user-header-container group">
             <span className="profile-picture">
-            <img className="profile-picture-image" src={ user.profile_picture_url } />
-            { uploadProfilePicture }
+              <img className="profile-picture-image" src={ user.profile_picture_url } />
+              { uploadProfilePicture }
             </span>
             <div className="user-header">
               <h1 className={ hideDisplayName }>{ user.display_name }</h1><br />

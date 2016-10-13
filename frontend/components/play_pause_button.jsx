@@ -38,7 +38,7 @@ class PlayPauseButton extends React.Component {
       type = "play-button";
     }
     return (
-      <img className={ type } src={ button } onClick={ this.togglePlay }/>
+      <img className={ type + " welcome-button" } src={ button } onClick={ this.togglePlay }/>
     );
   }
 }

@@ -3,6 +3,7 @@ import { receiveErrors, clearErrors } from '../actions/error_actions.js';
 import * as TrackAPI from '../util/track_api_util.js';
 import { findPlayerTrackIdx } from '../util/selectors.js';
 import { removeWavesurfer } from '../actions/player_actions.js';
+import { destroyWavesurfer } from '../actions/wavesurfer_actions.js';
 
 
 const trackMiddleware = ({ getState, dispatch}) => (next) => (action) => {
@@ -26,13 +27,13 @@ const trackMiddleware = ({ getState, dispatch}) => (next) => (action) => {
       return TrackAPI.updateTrack(action.id, action.formData, success, error);
     }
     case trackActions.DESTROY_TRACK: {
-
       const success = (data) => {
         const idx = findPlayerTrackIdx(getState().playerTracks.stack, data);
         if (idx !== -1) {
           dispatch(removeWavesurfer(idx));
         }
-        next(trackActions.destroyTrack(data.id));
+        dispatch(destroyWavesurfer(data.id));
+        next(action);
       };
       return TrackAPI.destroyTrack(action.id, success, error);
     }

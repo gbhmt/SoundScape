@@ -1,0 +1,82 @@
+.welcome-page-container {
+ width: 1240px;
+ margin: 0 auto;
+ position: relative;
+}
+
+.welcome-background {
+  width: 1240px;
+  height: 454px;
+  background-image: image-url('welcome-background.jpg')
+}
+
+.welcome-heading {
+  font-size: 32px;
+  position: absolute;
+  color: white;
+  font-family: "Interstate-Regular";
+  left: 122px;
+  top: 120px;
+}
+
+.welcome-tracks-heading {
+  text-align: center;
+  font-size: 24px;
+  font-family: "Interstate-Regular";
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.welcome-tracks {
+  width: 100%;
+  padding: 20px;
+}
+
+.welcome-tracks:last-child {
+  margin: 0;
+}
+
+.welcome-item {
+  float: left;
+  margin-right: 15px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cover {
+  width: 180px;
+  height: 180px;
+}
+
+.welcome-item:hover .welcome-button {
+  opacity: 1
+}
+
+.welcome-item .welcome-button {
+  position: absolute;
+  float: none;
+  top: 65px;
+  left: 60px;
+  opacity: 0;
+}
+
+.welcome-track-link {
+  display: block;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+  font-size: 14px;
+  padding: 5px 5px 0 5px;
+}
+
+.welcome-profile-link {
+  color: #999;
+  font-size: 12px;
+  padding: 5px 5px 0 5px;
+}
+
+.welcome-profile-link:hover {
+  color: #333;
+}

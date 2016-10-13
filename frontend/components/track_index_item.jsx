@@ -7,21 +7,13 @@ import PlayPauseButtonContainer from './play_pause_button_container.js';
 class TrackIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    // this.toggleTrack = this.toggleTrack.bind(this);
-
+    this.fullyDestroyTrack = this.fullyDestroyTrack.bind(this);
   }
 
-  // toggleTrack () {
-  //   if (this.props.wavesurfer && this.props.wavesurfer.isPlaying()) {
-  //     this.props.wavesurfer.pause();
-  //   } else {
-  //     if (!this.props.trackInPlayer) {
-  //       this.props.addWavesurfer(this.props.wavesurfer, this.props.track);
-  //     } else {
-  //       this.props.wavesurfer.play();
-  //     }
-  //   }
-  // }
+  fullyDestroyTrack () {
+    this.props.wavesurfer.destroy();
+    this.props.destroyTrack(this.props.track.id);
+  }
 
   render () {
     const { track, currentUser, handleModal, destroyTrack, wavesurfer } = this.props;
@@ -31,7 +23,7 @@ class TrackIndexItem extends React.Component {
     let deleteTrack;
     if (currentUser && currentUser.id === track.user_id) {
       editTrack = <button className="edit-track" onClick={ () => handleModal(track) }>Edit</button>;
-      deleteTrack = <button className="delete" onClick={ () => destroyTrack(track.id) }>Delete</button>;
+      deleteTrack = <button className="delete" onClick={ this.fullyDestroyTrack }>Delete</button>;
     }
     return (
       <li className="track-item-container group">
