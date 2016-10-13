@@ -60,37 +60,25 @@ user5.save!
 
 Track.destroy_all
 
-track17 = Track.new(user_id: 4, title: "You Are the Sunshine of My Life",
-description: "From \"Talking Book\", released in 1972,
-Composed by Stevie Wonder
 
-Stevie Wonder: vocals, Fender Rhodes, drums
-Jim Gilstrap: first lead vocal, background vocals
-Lani Groves: second lead vocal, background vocals
-Gloria Barkley: background vocals
-Scott Edwards: electric bass
-Daniel Ben Zebulon: congas")
-track17.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+You+Are+The+Sunshine+Of+My+Life.mp3')
-track17.image = File.open('app/assets/images/talking-book.png')
-track17.save!
+track2 = Track.new(user_id: 2, title: "The Bird", description: "Written By Anderson .Paak
+Trumpet: Emile Martinez
+Strings: Julian Le
+Bass: Kelsey Gonzalez
+Piano: Ron Jerome Avant
+Guitar: Jose Rios
+Release Date: January 15, 2016")
+track2.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+The+Bird+1.mp3')
+track2.image = File.open('app/assets/images/malibu.jpeg')
+track2.save!
 
-
-track6 = Track.new(user_id: 1, title: "BAIA - Soliloquy",
-description: "Composed by Taylor Herron
-
-BAIA:
-Alto Saxophone: Taylor Herron
-Trombone: Peter Nelson
-Piano: Steven Feifke
-Bass: Devin Starks
-Drums: Darrian Douglas
-Recorded March 11, 2016 at Riro Muzik, Brookyln, NY
-Mixed by Matteo Liberatore
-Mastered at Bass Hit Recording, NYC")
-track6.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/Soliloquy.mp3')
-track6.image = File.open('app/assets/images/profile.jpg')
-track6.save!
-
+track1 = Track.new(user_id: 1, title: "Love Came ft. Riley Mulherkar",
+description: "Composed by Billy Strayhorn
+Arranged by Taylor Herron
+Performed by Riley Mulherkar and Juilliard Strings")
+track1.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+Love+Came%2C+Take+1.mp3')
+track1.image = File.open('app/assets/images/strayhorn.jpg')
+track1.save!
 
 track13 = Track.new(user_id: 4, title: "Golden Lady",
 description: "From \"Innervisions\", released in 1973
@@ -115,6 +103,63 @@ track3.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_f
 track3.image = File.open('app/assets/images/malibu.jpeg')
 track3.save!
 
+track17 = Track.new(user_id: 4, title: "You Are the Sunshine of My Life",
+description: "From \"Talking Book\", released in 1972,
+Composed by Stevie Wonder
+
+Stevie Wonder: vocals, Fender Rhodes, drums
+Jim Gilstrap: first lead vocal, background vocals
+Lani Groves: second lead vocal, background vocals
+Gloria Barkley: background vocals
+Scott Edwards: electric bass
+Daniel Ben Zebulon: congas")
+track17.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+You+Are+The+Sunshine+Of+My+Life.mp3')
+track17.image = File.open('app/assets/images/talking-book.png')
+track17.save!
+
+track4 = Track.new(user_id: 2, title: "Heart Don't Stand a Chance", description: "Written By: Anderson .Paak
+Background Vocals: Anderson .Paak
+Drums: Anderson .Paak
+Guitar: Daniel Seeff
+Bass: Daniel Seeff
+Keyboards: Sam Barsh
+Release Date: January 15, 2016")
+track4.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/02+Heart+Don%27t+Stand+a+Chance+1.mp3')
+track4.image = File.open('app/assets/images/malibu.jpeg')
+track4.save!
+
+track5 = Track.new(user_id: 2, title: "NxWorries (Anderson .Paak and Knxwledge) - Get Bigger",
+description: "Written By: Anderson .Paak & Knxwledge
+From \"YES LAWD\", due to release October 21st, 2016")
+track5.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/1-01+Get+Bigger+_+Do+U+Luv.mp3')
+track5.image = File.open('app/assets/images/yes-lawd.jpg')
+track5.save!
+
+track6 = Track.new(user_id: 1, title: "Soliloquy",
+description: "Composed by Taylor Herron
+
+Alto Saxophone: Taylor Herron
+Trombone: Peter Nelson
+Piano: Steven Feifke
+Bass: Devin Starks
+Drums: Darrian Douglas
+Recorded March 11, 2016 at Riro Muzik, Brookyln, NY
+Mixed by Matteo Liberatore
+Mastered at Bass Hit Recording, NYC")
+track6.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/Soliloquy.mp3')
+track6.image = File.open('app/assets/images/profile.jpg')
+track6.save!
+
+
+track9 = Track.new(user_id: 3, title: "Pink + White",
+description: "Written By: Pharrell Williams, Om'Mas Keith & Frank Ocean
+Guitar: Brent Paschke
+Background Vocals: Beyoncé
+Release Date: August 20, 2016")
+track9.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/03+Pink+%2B+White.m4a')
+track9.image = File.open('app/assets/images/blonde.jpg')
+track9.save!
+
 track8 = Track.new(user_id: 1, title: "I Concentrate on You",
 description: "Composed by Cole Porter,
 Arranged by Taylor Herron
@@ -131,31 +176,6 @@ track8.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_f
 track8.image = File.open('app/assets/images/profile.jpg')
 track8.save!
 
-
-track11 = Track.new(user_id: 3, title: "Super Rich Kids ft. Earl Sweatshirt",
-description: "Written By: Frank Ocean and Earl Sweatshirt
-Mastered by: Vlado Meller
-Release Date: July 10, 2012
-Samples: Bennie and the Jets by Elton John
-Sampled In: Slumromantiker by L.O.C.
-Interpolates: Real Love by Mary J. Blige")
-track11.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/07+Super+Rich+Kids+(feat.+Earl+Sweatshirt).mp3')
-track11.image = File.open('app/assets/images/channel-orange.jpg')
-track11.save!
-
-
-track19 = Track.new(user_id: 5, title: "Say It (Over and Over Again)",
-description: "From \"Ballads\", released in 1963
-Composed by Frank Loesser
-
-John Coltrane: tenor saxophone
-Jimmy Garrison: bass
-McCoy Tyner: piano
-Elvin Jones: drums")
-track19.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+Say+It+(Over+And+Over+Again).mp3')
-track19.image = File.open('app/assets/images/trane-ballads.jpeg')
-track19.save!
-
 track10 = Track.new(user_id: 3, title: "Solo",
 description: "Written by Frank Ocean
 Release Date: August 20, 2016")
@@ -163,129 +183,6 @@ track10.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_
 track10.image = File.open('app/assets/images/blonde.jpg')
 track10.save!
 
-track7 = Track.new(user_id: 1, title: "Duke Ellington's Sound of Love",
-description: "Composed by Charles Mingus
-
-Alto Saxophone: Taylor Herron
-Vibraphone: Joseph Doubleday")
-track7.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/Duke+Ellington%27s+Sound+of+Love.mp3')
-track7.image = File.open('app/assets/images/profile.jpg')
-track7.save!
-
-
-track16 = Track.new(user_id: 4, title: "If It's Magic",
-description: "From \"Songs in the Key of Life\", released in 1976
-Composed by Stevie Wonder
-
-Stevie Wonder: vocals, harmonica
-Dorothy Ashby: harp")
-track16.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/17+If+It%27s+Magic.mp3')
-track16.image = File.open('app/assets/images/songs-life.jpg')
-track16.save!
-
-
-
-
-
-track21 = Track.new(user_id: 5, title: "Duke Ellington and John Coltrane - Take the Coltrane",
-description: "From \"Duke Ellington and John Coltrane\", released in 1963,
-Composed by Duke Ellington
-
-John Coltrane: tenor
-Duke Ellington: piano
-Jimmy Garrison: bass
-Elvin Jones: drums")
-track21.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/02+Take+The+Coltrane.mp3')
-track21.image = File.open('app/assets/images/duke-and-trane.jpg')
-track21.save!
-
-track2 = Track.new(user_id: 2, title: "The Bird", description: "Written By Anderson .Paak
-Trumpet: Emile Martinez
-Strings: Julian Le
-Bass: Kelsey Gonzalez
-Piano: Ron Jerome Avant
-Guitar: Jose Rios
-Release Date: January 15, 2016")
-track2.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+The+Bird+1.mp3')
-track2.image = File.open('app/assets/images/malibu.jpeg')
-track2.save!
-
-track9 = Track.new(user_id: 3, title: "Pink + White",
-description: "Written By: Pharrell Williams, Om'Mas Keith & Frank Ocean
-Guitar: Brent Paschke
-Background Vocals: Beyoncé
-Release Date: August 20, 2016")
-track9.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/03+Pink+%2B+White.m4a')
-track9.image = File.open('app/assets/images/blonde.jpg')
-track9.save!
-
-
-track20 = Track.new(user_id: 5, title: "Miles Davis - Two Bass Hit",
-description: "From \"Milestones\", released in 1958,
-Composed by Miles Davis
-
-Miles Davis: trumpet
-John Coltrane: tenor saxophone
-Cannonball Adderley: alto saxophone
-Red Garland: piano
-Paul Chambers: bass
-Philly Joe Jones: drums")
-track20.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/03+Two+Bass+Hit.mp3')
-track20.image = File.open('app/assets/images/milestones.jpeg')
-track20.save!
-
-track1 = Track.new(user_id: 1, title: "Love Came ft. Riley Mulherkar",
-description: "Composed by Billy Strayhorn
-Arranged by Taylor Herron
-Performed by Riley Mulherkar and Juilliard Strings")
-track1.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+Love+Came%2C+Take+1.mp3')
-track1.image = File.open('app/assets/images/strayhorn.jpg')
-track1.save!
-
-track5 = Track.new(user_id: 2, title: "NxWorries (Anderson .Paak and Knxwledge) - Get Bigger",
-description: "Written By: Anderson .Paak & Knxwledge
-From \"YES LAWD\", due to release October 21st, 2016")
-track5.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/1-01+Get+Bigger+_+Do+U+Luv.mp3')
-track5.image = File.open('app/assets/images/yes-lawd.jpg')
-track5.save!
-
-
-track14 = Track.new(user_id: 4, title: "You Haven't Done Nothin'",
-description: "From \"Fulfillingness' First Finale, released in 1974
-Composed by Stevie Wonder
-
-Stevie Wonder: lead vocals, Hohner clavinet, drums
-Reggie McBride: electric bass
-The Jackson 5: background vocals
-Robert Mergouleff and Malcolm Cecil: synthesizers")
-track14.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/06+You+Haven%27t+Done+Nothin%27.mp3')
-track14.image = File.open('app/assets/images/fulfillingness.jpg')
-track14.save!
-
-
-track23 = Track.new(user_id: 3, title: "Rushes To",
-description: "From \"Endless\", released August 19th, 2016
-Written by Frank Ocean
-
-Frank Ocean: vocals
-Austin Hollows and Alex G: guitars
-Mastered by Mike Dean
-Recorded at Hotel Bel Air, Capitol Studios")
-track23.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/16+Rushes+Too.m4a')
-track23.image = File.open('app/assets/images/endless.jpg')
-track23.save!
-
-track22 = Track.new(user_id: 5, title: "Naima",
-description: "From \"Giant Steps\", released in 1960
-Composed by John Coltrane
-
-John Coltrane: tenor saxophone
-Paul Chambers: bass
-Wynton Kelly: piano
-Jimmy Cobb: drums")
-track22.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/06+Naima.mp3')
-track22.image = File.open('app/assets/images/giant-steps.jpg')
-track22.save!
 
 track12 = Track.new(user_id: 1, title: "BAIA - Zoetic",
 description: "Composed by Peter Nelson
@@ -306,16 +203,37 @@ track12.save!
 
 
 
-track4 = Track.new(user_id: 2, title: "Heart Don't Stand a Chance", description: "Written By: Anderson .Paak
-Background Vocals: Anderson .Paak
-Drums: Anderson .Paak
-Guitar: Daniel Seeff
-Bass: Daniel Seeff
-Keyboards: Sam Barsh
-Release Date: January 15, 2016")
-track4.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/02+Heart+Don%27t+Stand+a+Chance+1.mp3')
-track4.image = File.open('app/assets/images/malibu.jpeg')
-track4.save!
+track11 = Track.new(user_id: 3, title: "Super Rich Kids ft. Earl Sweatshirt",
+description: "Written By: Frank Ocean and Earl Sweatshirt
+Mastered by: Vlado Meller
+Release Date: July 10, 2012
+Samples: Bennie and the Jets by Elton John
+Sampled In: Slumromantiker by L.O.C.
+Interpolates: Real Love by Mary J. Blige")
+track11.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/07+Super+Rich+Kids+(feat.+Earl+Sweatshirt).mp3')
+track11.image = File.open('app/assets/images/channel-orange.jpg')
+track11.save!
+
+track7 = Track.new(user_id: 1, title: "Duke Ellington's Sound of Love",
+description: "Composed by Charles Mingus
+
+Alto Saxophone: Taylor Herron
+Vibraphone: Joseph Doubleday")
+track7.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/Duke+Ellington%27s+Sound+of+Love.mp3')
+track7.image = File.open('app/assets/images/profile.jpg')
+track7.save!
+
+track14 = Track.new(user_id: 4, title: "You Haven't Done Nothin'",
+description: "From \"Fulfillingness' First Finale, released in 1974
+Composed by Stevie Wonder
+
+Stevie Wonder: lead vocals, Hohner clavinet, drums
+Reggie McBride: electric bass
+The Jackson 5: background vocals
+Robert Mergouleff and Malcolm Cecil: synthesizers")
+track14.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/06+You+Haven%27t+Done+Nothin%27.mp3')
+track14.image = File.open('app/assets/images/fulfillingness.jpg')
+track14.save!
 
 
 track15 = Track.new(user_id: 4, title: "Superwoman",
@@ -329,6 +247,9 @@ track15.image = File.open('app/assets/images/music-of-my-mind.png')
 track15.save!
 
 
+
+
+
 track18 = Track.new(user_id: 5, title: "The Night Has a Thousand Eyes",
 description: "From \"Coltrane's Sound\", released in 1964
 Composed by Jerry Brainin and Buddy Bernier
@@ -340,6 +261,84 @@ Elvin Jones: drums")
 track18.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+The+Night+Has+A+Thousand+Eyes.m4a')
 track18.image = File.open('app/assets/images/coltranes-sound.jpg')
 track18.save!
+
+
+track19 = Track.new(user_id: 5, title: "Say It (Over and Over Again)",
+description: "From \"Ballads\", released in 1963
+Composed by Frank Loesser
+
+John Coltrane: tenor saxophone
+Jimmy Garrison: bass
+McCoy Tyner: piano
+Elvin Jones: drums")
+track19.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/01+Say+It+(Over+And+Over+Again).mp3')
+track19.image = File.open('app/assets/images/trane-ballads.jpeg')
+track19.save!
+
+track16 = Track.new(user_id: 4, title: "If It's Magic",
+description: "From \"Songs in the Key of Life\", released in 1976
+Composed by Stevie Wonder
+
+Stevie Wonder: vocals, harmonica
+Dorothy Ashby: harp")
+track16.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/17+If+It%27s+Magic.mp3')
+track16.image = File.open('app/assets/images/songs-life.jpg')
+track16.save!
+
+
+track20 = Track.new(user_id: 5, title: "Miles Davis - Two Bass Hit",
+description: "From \"Milestones\", released in 1958,
+Composed by Miles Davis
+
+Miles Davis: trumpet
+John Coltrane: tenor saxophone
+Cannonball Adderley: alto saxophone
+Red Garland: piano
+Paul Chambers: bass
+Philly Joe Jones: drums")
+track20.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/03+Two+Bass+Hit.mp3')
+track20.image = File.open('app/assets/images/milestones.jpeg')
+track20.save!
+
+
+track21 = Track.new(user_id: 5, title: "Duke Ellington and John Coltrane - Take the Coltrane",
+description: "From \"Duke Ellington and John Coltrane\", released in 1963,
+Composed by Duke Ellington
+
+John Coltrane: tenor
+Duke Ellington: piano
+Jimmy Garrison: bass
+Elvin Jones: drums")
+track21.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/02+Take+The+Coltrane.mp3')
+track21.image = File.open('app/assets/images/duke-and-trane.jpg')
+track21.save!
+
+
+track22 = Track.new(user_id: 5, title: "Naima",
+description: "From \"Giant Steps\", released in 1960
+Composed by John Coltrane
+
+John Coltrane: tenor saxophone
+Paul Chambers: bass
+Wynton Kelly: piano
+Jimmy Cobb: drums")
+track22.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/06+Naima.mp3')
+track22.image = File.open('app/assets/images/giant-steps.jpg')
+track22.save!
+
+
+track23 = Track.new(user_id: 3, title: "Rushes To",
+description: "From \"Endless\", released August 19th, 2016
+Written by Frank Ocean
+
+Frank Ocean: vocals
+Austin Hollows and Alex G: guitars
+Mastered by Mike Dean
+Recorded at Hotel Bel Air, Capitol Studios")
+track23.track_file = open('https://s3.amazonaws.com/soundscape-dev/tracks/track_files/16+Rushes+Too.m4a')
+track23.image = File.open('app/assets/images/endless.jpg')
+track23.save!
+
 
 track24 = Track.new(user_id: 3, title: "Sweet Life",
 description: "From \"channel ORANGE\", released March 11, 2012

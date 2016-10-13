@@ -106,7 +106,7 @@ class TrackShow extends React.Component {
               <img className="track-show-image" src={ track.image_url }/>
               { uploadImage }
             </div>
-            <WavesurferContainer track={ this.props.track } type="trackShowWave"/>
+            <WavesurferContainer key={ this.props.track.id } track={ this.props.track } type="trackShowWave"/>
           </header>
 
 

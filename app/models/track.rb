@@ -26,6 +26,9 @@ class Track < ActiveRecord::Base
   validates_attachment_presence :track_file
   validates_attachment_content_type :track_file, content_type: /\Aaudio\/.*\z/
 
+  paginates_per 6
+  default_scope { order("created_at DESC") }
+
   belongs_to :user
 
   has_many :comments, as: :commentable

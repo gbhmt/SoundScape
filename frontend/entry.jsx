@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
 import merge from 'lodash/merge';
+import { fetchAllTracks } from './actions/track_actions.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.store = store;
   window.merge = merge;
+  window.fetchAllTracks = fetchAllTracks;
 
   Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, document.getElementById("root"));

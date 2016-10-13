@@ -6,12 +6,13 @@ import { Link } from 'react-router';
 
 class WelcomePage extends React.Component {
   componentDidMount () {
-    this.props.fetchAllTracks();
+    this.props.fetchAllTracks(1);
+    this.props.fetchAllTracks(2);
   }
 
   render () {
     if (this.props.tracks) {
-      const allTracks = this.props.tracks.map((track, idx) => {
+      const allTracks = this.props.tracks.slice(0, 12).map((track, idx) => {
         const trackLink = `/tracks/${track.id}`;
         const artistLink = `/users/${track.user_id}`;
         return (

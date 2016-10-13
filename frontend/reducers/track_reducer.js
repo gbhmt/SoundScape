@@ -7,10 +7,12 @@ import merge from 'lodash/merge';
 const trackReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_TRACKS:
-      const result = {};
-      action.tracks.forEach((track) => {
+      const result = merge({}, state);
+      action.tracks.tracks.forEach((track) => {
         result[track.id] = track;
       });
+      result.currentPage = action.tracks.current_page;
+      result.numPages = action.tracks.num_pages;
       return result;
     case RECEIVE_SINGLE_TRACK:
       return merge({}, state, {[action.track.id]: action.track});

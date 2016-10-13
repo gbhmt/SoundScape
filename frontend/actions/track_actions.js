@@ -6,8 +6,9 @@ export const DESTROY_TRACK = "DESTROY_TRACK";
 export const RECEIVE_ALL_TRACKS = "RECEIVE_ALL_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
 
-export const fetchAllTracks = () => ({
-  type: FETCH_ALL_TRACKS
+export const fetchAllTracks = (page) => ({
+  type: FETCH_ALL_TRACKS,
+  page
 });
 
 export const fetchSingleTrack = (id) => ({

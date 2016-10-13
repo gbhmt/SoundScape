@@ -38,7 +38,7 @@ class Wavesurfer extends React.Component  {
         visible = false;
       }
       const container = document.querySelector(`#waveform-${this.props.track.id}`);
-      if (!this.props.wavesurfers[this.props.track.id]) {
+      if (!this.props.wavesurfer) {
         const wavesurfer = WaveSurfer.create({
           container: container,
           cursorWidth: 0,
@@ -51,9 +51,11 @@ class Wavesurfer extends React.Component  {
           visible: visible
         });
         wavesurfer.load(this.props.track.track_file_url);
-        this.props.receiveWavesurfer(wavesurfer, this.props.track.id);
+        wavesurfer.on('ready', () => {
+          this.props.receiveWavesurfer(wavesurfer, this.props.track.id);
+        });
       } else {
-        const wavesurfer = this.props.wavesurfers[this.props.track.id];
+        const wavesurfer = this.props.wavesurfer;
         wavesurfer.visible = visible;
         wavesurfer.params.height = height;
         wavesurfer.container = container;

@@ -7,7 +7,7 @@ export const allComments = (comments) => {
 export const allTracks = (tracks) => {
   return Object.keys(tracks).map((key) => {
     return tracks[key];
-  }).reverse();
+  }).reverse().slice(2);
 };
 
 export const findPlayerTrackIdx = (playerState, trackToAdd) => {

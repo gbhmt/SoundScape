@@ -24,7 +24,7 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.all
+    @tracks = Track.all.page params[:page]
   end
 
   def destroy

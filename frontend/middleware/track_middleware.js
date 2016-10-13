@@ -11,7 +11,7 @@ const trackMiddleware = ({ getState, dispatch}) => (next) => (action) => {
   switch (action.type) {
     case trackActions.FETCH_ALL_TRACKS: {
       const success = (data) => dispatch(trackActions.receiveAllTracks(data));
-      return TrackAPI.fetchAllTracks(success, error);
+      return TrackAPI.fetchAllTracks(action.page, success, error);
     }
     case trackActions.FETCH_SINGLE_TRACK: {
       const success = (data) => dispatch(trackActions.receiveSingleTrack(data));

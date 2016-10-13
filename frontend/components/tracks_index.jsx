@@ -14,7 +14,9 @@ class TracksIndex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchAllTracks();
+    if (!this.props.tracks[0]) {
+      this.props.fetchAllTracks(1);
+    }
   }
 
   handleModal (track) {
@@ -26,14 +28,27 @@ class TracksIndex extends React.Component {
   }
 
   render () {
-    if (this.props.tracks) {
-      const tracks = this.props.tracks.map((track, idx) => {
+    const { currentPage, numPages, tracks, fetchAllTracks } = this.props
+    if (tracks[0]) {
+      const allTracks = tracks.map((track, idx) => {
         return <TrackIndexItemContainer key={ idx } track={ track } handleModal={ this.handleModal } />;
       });
+      let nextPage;
+      if (currentPage < numPages) {
+        nextPage =
+        <button className="next-page"
+        onClick={ () => fetchAllTracks(currentPage + 1) }>
+        See more
+        </button>
+        ;
+      }
       return (
         <div className="tracks-index-container">
           <div className="tracks-index-items">
-            <ul>{ tracks }</ul>
+            <ul className="tracks-index">
+              { allTracks }
+            </ul>
+            { nextPage }
             <Modal
               isOpen={ this.state.modalOpen }
               onRequestClose={ this.closeModal }

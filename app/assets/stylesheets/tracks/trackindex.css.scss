@@ -3,13 +3,29 @@
   box-sizing: border-box;
   margin: 0 auto;
   background: white;
-  padding: 30px 30px 0 30px;
-  height: 100%;
+  padding: 30px 30px 30px 30px;
   overflow: auto;
+  position: relative;
 }
 
 .tracks-index-items {
   float: left;
   padding-right: 20px;
   border-right: 1px solid #eee;
+  height: 100%;
+}
+
+.next-page {
+  padding: 5px 11px 3px 10px;
+  border: 1px solid;
+  border-color: #f50;
+  border-radius: 3px;
+  background-color: #f50;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+  position: absolute;
+  bottom: 50px;
+  left: 410px;
 }

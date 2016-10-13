@@ -6,7 +6,9 @@ import { allTracks } from '../util/selectors.js';
 
 const mapStateToProps = ({ currentUser, tracks }) => ({
   currentUser,
-  tracks: allTracks(tracks)
+  tracks: allTracks(tracks),
+  currentPage: tracks.currentPage,
+  numPages: tracks.numPages
 });
 
 export default connect(

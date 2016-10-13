@@ -108,7 +108,10 @@ class UserShow extends React.Component {
       }
       let userTracks;
       if (user.tracks) {
-          userTracks = allTracks(user.tracks).map((track, idx) => {
+          const allTracks = Object.keys(user.tracks).map((key) => {
+            return user.tracks[key];
+          }).reverse();
+          userTracks = allTracks.map((track, idx) => {
           return <TrackIndexItemContainer handleModal={ this.handleModal } key={ idx } track={ track } />;
         });
       }
