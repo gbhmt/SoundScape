@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import SessionFormContainer from './session_form_container.jsx';
-import { authModalStyle } from '../util/modal_styles.js';
+import SessionFormContainer from '../users/session_form_container.jsx';
+import { authModalStyle } from '../../util/modal_styles.js';
 
 
 class CommentForm extends React.Component {

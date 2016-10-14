@@ -1,5 +1,5 @@
 import React from 'react';
-import { userModalStyle } from '../util/modal_styles.js';
+import { userModalStyle } from '../../util/modal_styles.js';
 import TrackFormContainer from './track_form_container.js';
 import TrackIndexItemContainer from './track_index_item_container.js';
 import Modal from 'react-modal';

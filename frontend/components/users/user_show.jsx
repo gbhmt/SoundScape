@@ -1,11 +1,10 @@
 import React from 'react';
-import { userModalStyle } from '../util/modal_styles.js';
+import { userModalStyle } from '../../util/modal_styles.js';
 import UserForm from './user_form.jsx';
 import Modal from 'react-modal';
-import nl2br from '../util/newline_to_break.jsx';
-import TrackIndexItemContainer from './track_index_item_container.js';
-import TrackFormContainer from './track_form_container.js';
-import { allTracks } from '../util/selectors.js';
+import TrackIndexItemContainer from '../tracks/track_index_item_container.js';
+import TrackFormContainer from '../tracks/track_form_container.js';
+import { allTracks } from '../../util/selectors.js';
 import { withRouter } from 'react-router';
 
 

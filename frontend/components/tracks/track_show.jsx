@@ -2,13 +2,13 @@ import React from 'react';
 import TrackFormContainer from './track_form_container.js';
 import Modal from 'react-modal';
 import { Link, withRouter } from 'react-router';
-import { userModalStyle } from '../util/modal_styles.js';
-import nl2br from '../util/newline_to_break.jsx';
-import CommentContainer from './comment_container.js';
-import CommentFormContainer from './comment_form_container.js';
-import { allComments } from '../util/selectors.js';
-import WavesurferContainer from './wavesurfer_container.js';
-import PlayPauseButtonContainer from './play_pause_button_container.js';
+import { userModalStyle } from '../../util/modal_styles.js';
+import nl2br from '../../util/newline_to_break.jsx';
+import CommentContainer from '../comments/comment_container.js';
+import CommentFormContainer from '../comments/comment_form_container.js';
+import { allComments } from '../../util/selectors.js';
+import WavesurferContainer from '../player/wavesurfer_container.js';
+import PlayPauseButtonContainer from '../player/play_pause_button_container.js';
 
 
 class TrackShow extends React.Component {

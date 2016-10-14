@@ -1,5 +1,5 @@
 import React from 'react';
-import { trackIdxinPlayer } from '../util/selectors.js';
+import { trackIdxinPlayer } from '../../util/selectors.js';
 import { Link } from 'react-router';
 
 

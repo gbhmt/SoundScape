@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Modal from 'react-modal';
-import SessionFormContainer from './session_form_container.jsx';
-import TrackFormContainer from './track_form_container.js';
+import SessionFormContainer from './users/session_form_container.jsx';
+import TrackFormContainer from './tracks/track_form_container.js';
 import { authModalStyle, userModalStyle } from '../util/modal_styles.js';
 
 class Header extends React.Component {

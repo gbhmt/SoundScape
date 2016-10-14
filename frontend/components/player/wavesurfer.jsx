@@ -10,20 +10,6 @@ class Wavesurfer extends React.Component  {
       this.createWavesurfer();
     }
 
-    // componentDidUpdate () {
-    //   const container = document.querySelector(`#waveform-${this.props.track.id}`);
-    //   let wavesurfer = this.props.wavesurfers[this.props.track.id];
-    //   $($(wavesurfer.container)[0]).remove();
-    //   if (this.props.track.id === 1) {
-    //     debugger
-    //   }
-    //   wavesurfer.params.height = 60;
-    //   wavesurfer.container = container;
-    //   wavesurfer.createDrawer();
-    //   wavesurfer.drawBuffer();
-    //   wavesurfer.seekTo(wavesurfer.getCurrentTime() / wavesurfer.getDuration());
-    // }
-
     createWavesurfer () {
       let height;
       let width;

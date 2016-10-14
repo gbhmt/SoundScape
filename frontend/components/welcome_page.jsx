@@ -1,6 +1,6 @@
 import React from 'react';
-import PlayPauseButtonContainer from './play_pause_button_container.js';
-import WavesurferContainer from './wavesurfer_container.js';
+import PlayPauseButtonContainer from './player/play_pause_button_container.js';
+import WavesurferContainer from './player/wavesurfer_container.js';
 import { Link } from 'react-router';
 
 

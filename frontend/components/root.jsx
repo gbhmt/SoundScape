@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
-import UserShowContainer from './user_show_container.js';
-import TrackShowContainer from './track_show_container.js';
-import TracksIndexContainer from './tracks_index_container.js';
+import UserShowContainer from './users/user_show_container.js';
+import TrackShowContainer from './tracks/track_show_container.js';
+import TracksIndexContainer from './tracks/tracks_index_container.js';
 import WelcomePageContainer from './welcome_page_container.js';
 import NotFound from './not_found.jsx';
 

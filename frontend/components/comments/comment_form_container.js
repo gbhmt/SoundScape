@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import Comment from './comment.jsx';
-import { destroyComment } from '../actions/comment_actions.js';
+import { createComment } from '../../actions/comment_actions.js';
+import CommentForm from './comment_form.jsx';
 
 const mapStateToProps = ({ currentUser }) => ({ currentUser });
 
 export default connect(
   mapStateToProps,
-  { destroyComment }
-)(Comment);
+  { createComment }
+)(CommentForm);
