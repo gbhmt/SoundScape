@@ -65,7 +65,7 @@ class TrackForm extends React.Component {
        this.props.createTrack(formData).then((track) => {
          this.props.closeModal();
          this.props.router.push(`/tracks/${track.id}`);
-      }, () => {
+      }, (data) => {
         this.stopSpinner();
         this.setState({ submitDisabled: false })
       });

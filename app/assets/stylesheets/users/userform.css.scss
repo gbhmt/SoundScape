@@ -29,7 +29,7 @@ label:not([for=pic-button]) {
 
 label[for=pic-button] {
   position: absolute;
-  left: 100px;
+  left: 90px;
   top: 295px;
   padding: 5px 11px 3px 10px;
   border: 1px solid #e5e5e5;
@@ -37,6 +37,10 @@ label[for=pic-button] {
   background-color: white;
   cursor: pointer;
   font-size: 14px;
+}
+
+label[for=pic-button] > img {
+  padding-right: 4px;
 }
 
 .pic-button {

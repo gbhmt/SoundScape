@@ -59,6 +59,7 @@ class TrackShow extends React.Component {
   }
 
   handleDestroy () {
+    this.props.wavesurfer.destroy();
     this.props.destroyTrack(this.props.track.id).then(() => {
       this.props.router.goBack();
     });

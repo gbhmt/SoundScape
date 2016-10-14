@@ -60,7 +60,7 @@ class UserForm extends React.Component {
          <h1 className="user-form-heading">Edit your Profile</h1>
          <div className="user-form-container group">
            <img className="form-profile-pic" src={ this.state.profileImageUrl }/>
-           <label htmlFor="pic-button">Update image
+           <label htmlFor="pic-button"><img src={ window.SoundScapeAssets.cameraIcon } />Update image
            <input id="pic-button" className="pic-button" type="file" onChange={ this.updateFile }/></label>
            <div className="fields group">
            <label>Display name</label>
