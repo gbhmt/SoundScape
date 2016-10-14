@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TrackShow from './track_show.jsx';
 import { fetchSingleTrack, updateTrack, destroyTrack } from '../actions/track_actions.js';
+import { clearErrors } from '../actions/error_actions.js';
 
 
 const mapStateToProps = ({ currentUser, tracks, wavesurfers }, ownProps) => ({
@@ -11,5 +12,5 @@ const mapStateToProps = ({ currentUser, tracks, wavesurfers }, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  { fetchSingleTrack, updateTrack, destroyTrack }
+  { fetchSingleTrack, updateTrack, destroyTrack, clearErrors }
 )(TrackShow);

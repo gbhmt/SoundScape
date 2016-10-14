@@ -6,6 +6,7 @@ import UserShowContainer from './user_show_container.js';
 import TrackShowContainer from './track_show_container.js';
 import TracksIndexContainer from './tracks_index_container.js';
 import WelcomePageContainer from './welcome_page_container.js';
+import NotFound from './not_found.jsx';
 
 
 
@@ -17,7 +18,7 @@ const Root = ({ store }) => {
       replace("/");
     }
   };
-
+  const missing = Router.NotFoundRoute;
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
@@ -26,6 +27,7 @@ const Root = ({ store }) => {
           <Route path="/tracks" component={ TracksIndexContainer } />
           <Route path="users/:id" component={ UserShowContainer } />
           <Route path="tracks/:id" component={ TrackShowContainer } />
+          <Route path="*" component={ NotFound } />
         </Route>
       </Router>
     </Provider>

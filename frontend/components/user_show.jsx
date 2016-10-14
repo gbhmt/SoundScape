@@ -6,6 +6,7 @@ import nl2br from '../util/newline_to_break.jsx';
 import TrackIndexItemContainer from './track_index_item_container.js';
 import TrackFormContainer from './track_form_container.js';
 import { allTracks } from '../util/selectors.js';
+import { withRouter } from 'react-router';
 
 
 
@@ -20,7 +21,10 @@ class UserShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchSingleUser(this.props.params.id);
+    this.props.fetchSingleUser(this.props.params.id).then(null, () => {
+      this.props.router.push("*");
+      this.props.clearErrors();
+    });
   }
 
   componentWillReceiveProps (nextProps) {
@@ -163,4 +167,4 @@ class UserShow extends React.Component {
   }
 }
 
-export default UserShow;
+export default withRouter(UserShow);

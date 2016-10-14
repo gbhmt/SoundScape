@@ -24,7 +24,10 @@ class TrackShow extends React.Component {
 
   componentDidMount () {
     if (!this.props.track) {
-      this.props.fetchSingleTrack(this.props.params.id);
+      this.props.fetchSingleTrack(this.props.params.id).then(null, () => {
+        this.props.router.push("*");
+        this.props.clearErrors();
+      });
     }
   }
 
