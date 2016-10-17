@@ -14,7 +14,7 @@ User.destroy_all
 user1 = User.new(email: "taylorbherron@gmail.com", password: "password")
 user1.update(first_name: "Taylor", last_name: "Herron",
  city: "New York", country: "United States",
-  display_name: "Taylor Herron", bio: "I play the saxophone and code stuff.")
+  display_name: "Taylor Herron", bio: "I'm Taylor. I am a software developer and musician living in New York City. If you like this website, feel free to check out some of the other things I've built: https://github.com/gbhmt")
 user1.profile_picture = File.open('app/assets/images/profile.jpg')
 user1.header_background = File.open('app/assets/images/background.jpg')
 user1.save!
