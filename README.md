@@ -24,7 +24,7 @@ SoundScape is a web application for artists and music fans to discover and share
 The playback is accomplished through the wavesurfer.js library. Upon initialization, a wavesurfer object (consisting of a web audio node and a waveform drawn in Canvas) is created and rendered in a target container. The initial decoding the audio file is considerably slow, so upon initialization, I added the wavesurfer objects to the Redux store, to be remounted to the page when necessary. As this is not a viable long-term solution, I plan on instead implementing a cache, with further plans to decode the audio files server side. 
 
 
-```
+```javascript
 
  createWavesurfer () {
       let height;
