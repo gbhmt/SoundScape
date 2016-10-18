@@ -2,7 +2,7 @@
 
 SoundScape is a web application for artists and music fans to discover and share new music. It is inspired by SoundCloud and is built with a Ruby on Rails back end and a React.js/Redux front end, utilizing the wavesurfer.js library for playback and track waveforms.
 
-[SoundScape](www.sound-scape.net)
+[SoundScape](http://www.sound-scape.net)
 
 ### Welcome Page
 
