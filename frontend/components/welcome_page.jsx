@@ -19,8 +19,8 @@ class WelcomePage extends React.Component {
           <li key={ idx } className="welcome-item">
             <Link to={ trackLink } className="cover-link">
               <img className="cover" src={ track.image_url }/>
-              <WavesurferContainer track= { track } type="hidden"/>
             </Link>
+            <WavesurferContainer track={ track } type="hidden"/>
             <PlayPauseButtonContainer wavesurfer={ this.props.wavesurfers[track.id] } track={ track }/>
             <Link to={ trackLink } className="welcome-track-link">{ track.title }</Link>
             <Link to={ artistLink } className="welcome-profile-link">{ track.user_display_name }</Link>

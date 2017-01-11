@@ -3,7 +3,7 @@ import React from 'react';
 class Wavesurfer extends React.Component  {
     constructor(props) {
       super(props);
-      this.progress = null;
+      this.state = { progress: null };
     }
 
     componentDidMount () {
@@ -36,6 +36,9 @@ class Wavesurfer extends React.Component  {
           pixelRatio: 1,
           visible: visible
         });
+        wavesurfer.on('loading', (num) => {
+          this.setState({ progress: num });
+        });
         wavesurfer.load(this.props.track.track_file_url);
         wavesurfer.on('ready', () => {
           this.props.receiveWavesurfer(wavesurfer, this.props.track.id);
@@ -52,7 +55,15 @@ class Wavesurfer extends React.Component  {
     }
 
     render () {
-      return <div id={ "waveform-" + this.props.track.id } className={ this.props.type }></div>;
+      let progress;
+      if (this.state.progress && this.state.progress < 100) {
+        progress = <h6 className="progress">{ this.state.progress }</h6>;
+      }
+      return (
+        <div id={ "waveform-" + this.props.track.id } className={ this.props.type }>
+          { progress }
+        </div>
+      );
     }
   }
 

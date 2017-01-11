@@ -49,6 +49,20 @@
   height: 180px;
 }
 
+.welcome-item .hidden .progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 30px;
+  width: 180px;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.25);
+  margin: 0;
+  z-index: 1000;
+  line-height: 180px;
+  text-align: center;
+}
+
 .welcome-item:hover .welcome-button {
   opacity: 1
 }
