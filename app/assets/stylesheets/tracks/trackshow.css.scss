@@ -278,3 +278,20 @@ label[for=update-image] {
   background: #e5e5e5;
   border-color: #ccc;
 }
+
+.trackShowWave, .indexItemWave {
+  position: relative;
+}
+
+.indexItemWave .progress, .trackShowWave .progress  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 26px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  margin: 0;
+  z-index: 90;
+  text-align: center;
+}

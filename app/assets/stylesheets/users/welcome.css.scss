@@ -56,11 +56,12 @@
   font-size: 30px;
   width: 180px;
   height: 180px;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.45);
   margin: 0;
-  z-index: 1000;
+  z-index: 90;
   line-height: 180px;
   text-align: center;
+  color: white;
 }
 
 .welcome-item:hover .welcome-button {

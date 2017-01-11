@@ -57,7 +57,7 @@ class Wavesurfer extends React.Component  {
     render () {
       let progress;
       if (this.state.progress && this.state.progress < 100) {
-        progress = <h6 className="progress">{ this.state.progress }</h6>;
+        progress = <h6 className="progress">{ this.state.progress + '%' }</h6>;
       }
       return (
         <div id={ "waveform-" + this.props.track.id } className={ this.props.type }>
