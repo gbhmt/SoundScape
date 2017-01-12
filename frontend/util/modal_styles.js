@@ -6,7 +6,7 @@ export const authModalStyle = {
     right           : 0,
     bottom          : 0,
     backgroundColor : 'rgba(242, 242, 242, 0.9)',
-    zIndex         : 10
+    zIndex         : 140
   },
   content : {
     position        : 'fixed',
@@ -20,7 +20,7 @@ export const authModalStyle = {
     padding         : '25px',
     border          : '0',
     borderRadius    : '0',
-    zIndex         : 11,
+    zIndex         : 150,
   }
 };
 
@@ -32,7 +32,7 @@ export const userModalStyle = {
     right           : 0,
     bottom          : 0,
     backgroundColor : 'rgba(242, 242, 242, 0.9)',
-    zIndex         : 10
+    zIndex         : 140
   },
   content : {
     position        : 'fixed',
@@ -46,6 +46,6 @@ export const userModalStyle = {
     padding         : '25px',
     border          : '0',
     borderRadius    : '0',
-    zIndex         : 11,
+    zIndex         : 150,
   }
 };
